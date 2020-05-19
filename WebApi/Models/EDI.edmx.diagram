@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dc6ad6ed65df47238568755410b656f9" Name="Diagram1">
+        <EntityTypeShape EntityType="EDIModel.UploadLog" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EDIModel.Login" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EDIModel.PosColumnMap" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="EDIModel.PosData" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="EDIModel.PosOrderMapping" Width="2" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="EDIModel.ReportFile" Width="1.875" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="EDIModel.Country" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="EDIModel.Pos" Width="1.5" PointX="2.75" PointY="9.75" />
+        <EntityTypeShape EntityType="EDIModel.ItemCatalog" Width="1.5" PointX="9.75" PointY="4.75" />
+        <EntityTypeShape EntityType="EDIModel.Budget_Scrap" Width="1.5" PointX="8.75" PointY="13.75" />
+        <EntityTypeShape EntityType="EDIModel.Budget_DepartmentReport" Width="1.5" PointX="12.375" PointY="12.75" />
+        <EntityTypeShape EntityType="EDIModel.Budget_FileVersionBudget" Width="1.5" PointX="14.375" PointY="12.75" />
+        <EntityTypeShape EntityType="EDIModel.Budget_LoginReviewCommonCost" Width="1.5" PointX="16.375" PointY="15.75" />
+        <EntityTypeShape EntityType="EDIModel.Budget_LoginReviewReport" Width="1.5" PointX="17.375" PointY="0.75" />
+        <EntityTypeShape EntityType="EDIModel.Budget_LoginUploadCommonCost" Width="1.5" PointX="17.375" PointY="3.75" />
+        <EntityTypeShape EntityType="EDIModel.Budget_LoginUploadReport" Width="1.5" PointX="17.375" PointY="6.75" />
+        <EntityTypeShape EntityType="EDIModel.Budget_Capex" Width="1.5" PointX="5.375" PointY="13.75" />
+        <EntityTypeShape EntityType="EDIModel.Budget_DeptKPI" Width="1.5" PointX="16.375" PointY="9.75" />
+        <EntityTypeShape EntityType="EDIModel.Budget_HeadCount" Width="1.875" PointX="14.375" PointY="0.75" />
+        <EntityTypeShape EntityType="EDIModel.Budget_Cost" Width="1.5" PointX="9.375" PointY="7.75" />
+        <EntityTypeShape EntityType="EDIModel.Budget_DeptExpense" Width="1.5" PointX="13.375" PointY="16.75" />
+        <EntityTypeShape EntityType="EDIModel.Budget_CostTravelingMapping" Width="1.5" PointX="7.375" PointY="10.75" />
+        <EntityTypeShape EntityType="EDIModel.Budget_Traveling" Width="2.25" PointX="0.75" PointY="18.75" />
+        <EntityTypeShape EntityType="EDIModel.Budget_HeadCountHR" Width="1.5" PointX="11.375" PointY="7.75" />
+        <EntityTypeShape EntityType="EDIModel.SAP_PriceList" Width="1.5" PointX="7.375" PointY="17.75" />
+        <EntityTypeShape EntityType="EDIModel.ErrorLog" Width="1.5" PointX="13.375" PointY="7.75" />
+        <EntityTypeShape EntityType="EDIModel.Vote_ItemCatalog" Width="1.5" PointX="9.375" PointY="17.75" />
+        <EntityTypeShape EntityType="EDIModel.Vote_Mapping" Width="1.5" PointX="18.375" PointY="9.75" />
+        <EntityTypeShape EntityType="EDIModel.ButtonLog" Width="1.5" PointX="15.375" PointY="18.75" />
+        <EntityTypeShape EntityType="EDIModel.Edi_Customer" Width="1.5" PointX="19.375" PointY="0.75" />
+        <EntityTypeShape EntityType="EDIModel.Edi_SalesHeader" Width="1.5" PointX="19.375" PointY="4.75" />
+        <EntityTypeShape EntityType="EDIModel.Edi_SalesHeader_855" Width="1.5" PointX="20.375" PointY="8.75" />
+        <EntityTypeShape EntityType="EDIModel.Edi_SalesItem" Width="1.5" PointX="9.375" PointY="20.75" />
+        <EntityTypeShape EntityType="EDIModel.Edi_SalesItem_855" Width="1.5" PointX="20.375" PointY="11.75" />
+        <EntityTypeShape EntityType="EDIModel.Edi_SalesPartner" Width="1.5" PointX="20.375" PointY="15.75" />
+        <EntityTypeShape EntityType="EDIModel.Edi_SalesSchedule" Width="1.5" PointX="17.375" PointY="20.75" />
+        <EntityTypeShape EntityType="EDIModel.Edi_SalesSchedule_855" Width="1.5" PointX="20.375" PointY="19.75" />
+        <EntityTypeShape EntityType="EDIModel.Edi_Pos" Width="1.5" PointX="21.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="/scripts/js/ThirdParty/Jquery211.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    <link rel="stylesheet" type="text/css" href="/CSS/UploadFile.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.18/b-1.5.6/b-colvis-1.5.6/b-flash-1.5.6/b-html5-1.5.6/b-print-1.5.6/cr-1.5.0/fc-3.2.5/fh-3.1.4/rr-1.2.4/sl-1.3.0/datatables.min.css" />
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.18/b-1.5.6/b-colvis-1.5.6/b-flash-1.5.6/b-html5-1.5.6/b-print-1.5.6/cr-1.5.0/fc-3.2.5/fh-3.1.4/rr-1.2.4/sl-1.3.0/datatables.min.js"></script>
+    <script src="/scripts/js/ThirdParty/dataTables.altEditor.free.js"></script>
+    <script src="/scripts/js/Global.js"></script>
+    <script src="/scripts/js/Common.js"></script>
+    <script src="/scripts/js/Edi/Pos.js"></script>
+    <link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+    <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+</head>
+<body id="LoginForm">
+
+
+
+
+    <div class="input-group" id="pos_upload">
+        <span class="input-group-btn">
+            <button id="fake-file-button-browse" type="button" class="btn btn-default" data-toggle="tooltip" title="Choose File!">
+                <span class="glyphicon glyphicon-file"> </span>
+            </button>
+        </span>
+        <input type="file" id="files-input-upload" accept=".xls, .xlsx" style="display:none" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+        <input type="text" id="fake-file-input-name" disabled="disabled" placeholder="please upload  xls file max size: 200 MB" class="form-control">
+        <span class="input-group-btn">
+            <button type="button" class="btn btn-default" id="fake-file-button-upload" title="Upload!">
+                <span class="glyphicon glyphicon-upload"></span>
+            </button>
+        </span>
+    </div>
+    <br>
+    <div id="description">
+        <div class="dropdown" id="type" style="display:none">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton_type" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Type
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton_type">
+                <a class="dropdown-item" href="#">ALL</a>
+                <a class="dropdown-item" href="#">ICAT</a>
+                <a class="dropdown-item" href="#">IFD</a>
+                <a class="dropdown-item" href="#">IPD</a>
+            </div>
+        </div>
+        <div class="dropdown" id="quarter" style="display:none">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton_quarter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Quarter
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton_quarter">
+                <a class="dropdown-item" href="#">ALL</a>
+                <a class="dropdown-item" href="#">Q1</a>
+                <a class="dropdown-item" href="#">Q2</a>
+                <a class="dropdown-item" href="#">Q3</a>
+                <a class="dropdown-item" href="#">Q4</a>
+            </div>
+        </div>
+        <div class="dropdown" id="month" style="display:none">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton_month" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Month
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton_month">
+                <a class="dropdown-item" href="#">ALL</a>
+                <a class="dropdown-item" href="#">Jan,18</a>
+                <a class="dropdown-item" href="#">Feb,18</a>
+                <a class="dropdown-item" href="#">Mar,18</a>
+                <a class="dropdown-item" href="#">Apr,18</a>
+                <a class="dropdown-item" href="#">May,18</a>
+                <a class="dropdown-item" href="#">Jun,18</a>
+                <a class="dropdown-item" href="#">Jul,18</a>
+                <a class="dropdown-item" href="#">Aug,18</a>
+                <a class="dropdown-item" href="#">Sep,18</a>
+                <a class="dropdown-item" href="#">Oct,18</a>
+                <a class="dropdown-item" href="#">Nov,18</a>
+                <a class="dropdown-item" href="#">Dec,18</a>
+            </div>
+        </div>
+        <div class="dropdown" id="yy">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton_yy" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                YY
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton_yy">
+                <a class="dropdown-item" href="#">ALL</a>
+                <a class="dropdown-item" href="#">2017</a>
+                <a class="dropdown-item" href="#">2018</a>
+                <a class="dropdown-item" href="#">2019</a>
+                <a class="dropdown-item" href="#">2020</a>
+                <a class="dropdown-item" href="#">2021</a>
+                <a class="dropdown-item" href="#">2022</a>
+                <a class="dropdown-item" href="#">2023</a>
+                <a class="dropdown-item" href="#">2024</a>
+                <a class="dropdown-item" href="#">2025</a>
+                <a class="dropdown-item" href="#">2026</a>
+            </div>
+        </div>
+        <div class="dropdown" id="region">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton_region" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Region
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton_region">
+                <a class="dropdown-item" href="#">ALL</a>
+                <a class="dropdown-item" href="#">APAC</a>
+                <a class="dropdown-item" href="#">EMEA</a>
+                <a class="dropdown-item" href="#">NA</a>
+            </div>
+        </div>
+        <div class="dropdown" id="group">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton_group" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Group
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton_group">
+                <a class="dropdown-item" href="#">Series</a>
+                <a class="dropdown-item" href="#">Country</a>
+                <a class="dropdown-item" href="#">PN</a>
+                <a class="dropdown-item" href="#">CUS</a>
+                <a class="dropdown-item" href="#">PN_CUS</a>
+                <a class="dropdown-item" href="#">PartNo</a>
+            </div>
+        </div>
+        <div class="dropdown" id="series">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton_series" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                GroupKey
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton_series" id="seriesType">
+                <a class="dropdown-item" href="#">ALL</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-success" type="button" id="Submit" aria-haspopup="true" aria-expanded="false">
+                Go
+            </button>
+        </div>
+
+        <div class="keepRight">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="Change" aria-haspopup="true" aria-expanded="false">
+                    Change
+                </button>
+            </div>
+            <div class="dropdown" id="changepassword">
+                <input type="password" class="form-control" id="pwd" placeholder="change password">
+            </div>
+        </div>
+        <div>
+            <div class="dropdown">
+                <input id="dateStart" placeholder="2018/1/1" value="2018/1/1" width="80" />
+                <input id="dateEnd" placeholder="2099/1/1" value="2099/1/1" width="80" />
+                <button class="btn btn-primary" type="button" id="Pos" aria-haspopup="true" aria-expanded="false">
+                    POS
+                </button>
+                <button class="btn btn-primary" type="button" id="PosToExcel" aria-haspopup="true" aria-expanded="false">
+                    Excel
+                </button>
+                <small class="pull-right">confidential@ <a href="http://www.amphenol.com.tw/CH/About_01.asp">Amphenol LTW Technology Co.,Ltd</a></small>
+            </div>
+
+        </div>
+
+    </div>
+    <br>
+    <table id="table_id" class="display"></table>
+    <table id="table_id_group" class="display"></table>
+    <div class="form-group">
+        <textarea class="form-control rounded-0" id="errorTxt" rows="30"></textarea>
+    </div>
+    <footer><small class="pull-right">copyright@ <a href="http://www.amphenol.com.tw/CH/About_01.asp">Amphenol LTW Technology Co.,Ltd</a></small></footer>
+
+    <img src="/Image/ajax-loader.gif" id="loadIng" height="42" width="42">
+
+    <div id="dialog-confirm" title="change your password？" style="display:none">
+        <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Are you sure to change your account password？</p>
+    </div>
+    <script type="text/javascript">
+    </script>
+</body>
+</html>

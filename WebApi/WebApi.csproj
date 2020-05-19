@@ -1,0 +1,831 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{90078BB7-FABF-4A0F-9C2C-D3DBEFE855BE}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebApi</RootNamespace>
+    <AssemblyName>WebApi</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>App_Data\XmlDocument.xml</DocumentationFile>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=3.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.3.1.0\lib\net40\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ClosedXML, Version=0.94.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.94.2\lib\net40\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonServiceLocator, Version=2.0.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.3.0\lib\net45\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.7.2\lib\net40\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.0.3.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.0.3\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="FastMember, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FastMember.1.3.0\lib\net45\FastMember.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.SAPBAPIControlLib, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>ThirdParty\SAP\SAP_DLL\Interop.SAPBAPIControlLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.SAPFunctionsOCX, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>ThirdParty\SAP\SAP_DLL\Interop.SAPFunctionsOCX.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.SAPLogonCtrl, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>ThirdParty\SAP\SAP_DLL\Interop.SAPLogonCtrl.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.SAPTableFactoryCtrl, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>ThirdParty\SAP\SAP_DLL\Interop.SAPTableFactoryCtrl.dll</HintPath>
+    </Reference>
+    <Reference Include="jose-jwt, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\jose-jwt.2.4.0\lib\net40\jose-jwt.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LinqToExcel, Version=1.11.0.0, Culture=neutral, PublicKeyToken=9c8ea65a58f03f1f, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqToExcel.1.11.0\lib\LinqToExcel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.0.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.0.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.0.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.5.9\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog.Mvc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.Mvc.1.0.8\lib\net451\NLog.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.Web.4.6.0\lib\net35\NLog.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Remotion, Version=1.13.52.2, Culture=neutral, PublicKeyToken=0669cf0452175907, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqToExcel.1.11.0\lib\Remotion.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Remotion.Data.Linq, Version=1.13.52.2, Culture=neutral, PublicKeyToken=0669cf0452175907, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqToExcel.1.11.0\lib\Remotion.Data.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Remotion.Interfaces, Version=1.13.52.2, Culture=neutral, PublicKeyToken=0669cf0452175907, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqToExcel.1.11.0\lib\Remotion.Interfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Sap.Data.Hana.v3.5, Version=1.0.80.0, Culture=neutral, PublicKeyToken=0326b8ea63db4bc4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ThirdParty\SAP_HANA\Sap.Data.Hana.v3.5.dll</HintPath>
+    </Reference>
+    <Reference Include="sapnco, Version=3.0.0.42, Culture=neutral, PublicKeyToken=50436dca5c7f7d23, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ThirdParty\SAP\SAP_DLL\sapnco.dll</HintPath>
+    </Reference>
+    <Reference Include="sapnco_utils, Version=3.0.0.42, Culture=neutral, PublicKeyToken=50436dca5c7f7d23, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ThirdParty\SAP\SAP_DLL\sapnco_utils.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.Common, Version=2.12.14.6040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spire.XLS.9.12.20\lib\net40\Spire.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.License, Version=1.3.8.40, Culture=neutral, PublicKeyToken=b1144360237c8b3f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spire.XLS.9.12.20\lib\net40\Spire.License.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.Pdf, Version=5.12.16.18040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spire.XLS.9.12.20\lib\net40\Spire.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.XLS, Version=9.12.20.6040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spire.XLS.9.12.20\lib\net40\Spire.XLS.dll</HintPath>
+    </Reference>
+    <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Swashbuckle.Core.5.6.0\lib\net40\Swashbuckle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.6\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Cors, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.6\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.6\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.6\lib\net45\System.Web.Http.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.6\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.6\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.6\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Unity.Abstractions, Version=2.3.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.3.0\lib\net45\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Configuration, Version=5.0.7.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.3.0\lib\net45\Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.3.0.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.3.0\lib\net45\Unity.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Interception, Version=5.0.7.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.3.0\lib\net45\Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Interception.Configuration, Version=5.0.7.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.3.0\lib\net45\Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RegistrationByConvention, Version=2.1.0.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.3.0\lib\net45\Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ServiceLocation, Version=2.0.7.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.3.0\lib\net45\Unity.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.WebApi, Version=5.3.0.0, Culture=neutral, PublicKeyToken=43da31bc42a85347, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.WebAPI.5.3.0\lib\net45\Unity.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Css\jquery.dm-uploader.min.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Models\EDI.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EDI.edmx</DependentUpon>
+      <LastGenOutput>EDI.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\EDI.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EDI.edmx</DependentUpon>
+      <LastGenOutput>EDI.cs</LastGenOutput>
+    </Content>
+    <Content Include="ThirdParty\SAP\HANA\Sap.Data.Hana.v3.5.dll" />
+    <Content Include="ThirdParty\SAP\HANA\libSQLDBCHDB.dll" />
+    <Content Include="ThirdParty\SAP\SAP_DLL\Interop.SAPBAPIControlLib.dll" />
+    <Content Include="ThirdParty\SAP\SAP_DLL\Interop.SAPFunctionsOCX.dll" />
+    <Content Include="ThirdParty\SAP\SAP_DLL\Interop.SAPLogonCtrl.dll" />
+    <Content Include="ThirdParty\SAP\SAP_DLL\Interop.SAPTableFactoryCtrl.dll" />
+    <Content Include="testPage.html" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\UnityConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Common\BudgetAdapter\BudgetAdapterFactory.cs" />
+    <Compile Include="Common\BudgetAdapter\BudgetBase.cs" />
+    <Compile Include="Common\BudgetAdapter\BudgetExcelTravelling.cs" />
+    <Compile Include="Common\BudgetAdapter\BudgetExcelDeptExpense.cs" />
+    <Compile Include="Common\BudgetAdapter\BudgetExcelDeptKPI.cs" />
+    <Compile Include="Common\BudgetAdapter\BudgetExcelScrap.cs" />
+    <Compile Include="Common\BudgetAdapter\BudgetExcelCapex.cs" />
+    <Compile Include="Common\BudgetAdapter\BudgetExcelHeadCount.cs" />
+    <Compile Include="Common\BudgetAdapter\BudgetItemCatalog.cs" />
+    <Compile Include="Common\BudgetAdapter\BudgetExcelHeadCountHR.cs" />
+    <Compile Include="Common\BudgetAdapter\IBudgetAdapterFactory.cs" />
+    <Compile Include="Common\FileAdapter\FileAdapterFactory.cs" />
+    <Compile Include="Common\FileAdapter\FileBase.cs" />
+    <Compile Include="Common\FileAdapter\FileCSV.cs" />
+    <Compile Include="Common\FileAdapter\FileExcel.cs" />
+    <Compile Include="Common\FileAdapter\FileText.cs" />
+    <Compile Include="Common\FileAdapter\IFileAdapterFactory.cs" />
+    <Compile Include="Common\Function.cs" />
+    <Compile Include="Common\SapAdapter\SapAdapterFactory.cs" />
+    <Compile Include="Common\SapAdapter\SapBase.cs" />
+    <Compile Include="Common\SapAdapter\ISapAdapterFactory.cs" />
+    <Compile Include="Common\SapAdapter\SapExcelPriceList.cs" />
+    <Compile Include="Common\XSLXHelper.cs" />
+    <Compile Include="Controllers\Budget\BudgetFileVersionBudgetController.cs" />
+    <Compile Include="Controllers\Budget\BudgetLoginUploadCommonCostController.cs" />
+    <Compile Include="Controllers\Budget\BudgetLoginUploadReportController.cs" />
+    <Compile Include="Controllers\Budget\BudgetExcelUploadController.cs" />
+    <Compile Include="Controllers\Budget\BudgetDepartmentReportController.cs" />
+    <Compile Include="Controllers\Budget\LoginReviewPermissionController.cs" />
+    <Compile Include="Controllers\Budget\ReviewReportController.cs" />
+    <Compile Include="Controllers\Common\HeadCountHRController.cs" />
+    <Compile Include="Controllers\Common\LoginController.cs" />
+    <Compile Include="Controllers\EdiParser\EdiSalesOrder_855Controller.cs" />
+    <Compile Include="Controllers\EdiParser\EdiSalesScheduleController.cs" />
+    <Compile Include="Controllers\EdiParser\EdiSalesItemController.cs" />
+    <Compile Include="Controllers\EdiParser\EdiSalesHeaderController.cs" />
+    <Compile Include="Controllers\EDI\EdiCustomerController.cs" />
+    <Compile Include="Controllers\EDI\EmailPosController.cs" />
+    <Compile Include="Controllers\EDI\DownloadPosController.cs" />
+    <Compile Include="Controllers\EDI\EdiPosController.cs" />
+    <Compile Include="Controllers\EDI\PosOrderMappingController.cs" />
+    <Compile Include="Controllers\ItemCatalogController.cs" />
+    <Compile Include="Controllers\Report\DownloadController.cs" />
+    <Compile Include="Controllers\Report\ReportFileController.cs" />
+    <Compile Include="Controllers\SAP\BapiOrderController.cs" />
+    <Compile Include="Controllers\SAP\IndexController.cs" />
+    <Compile Include="Controllers\SAP\SAPExcelUploadController.cs" />
+    <Compile Include="Controllers\SAP\SAP_PriceListController.cs" />
+    <Compile Include="Controllers\testpostController.cs" />
+    <Compile Include="Controllers\Vote\VoteItemCatalogController.cs" />
+    <Compile Include="Controllers\Vote\VoteMappingController.cs" />
+    <Compile Include="Controllers\Vote\VoteResultController.cs" />
+    <Compile Include="DataModel\CustomModel\Budget\Budget.cs" />
+    <Compile Include="DataModel\CustomModel\Budget\Capex.cs" />
+    <Compile Include="DataModel\CustomModel\Budget\CustomHeadcount.cs" />
+    <Compile Include="DataModel\CustomModel\Budget\DeptExpense.cs" />
+    <Compile Include="DataModel\CustomModel\Budget\DropDownBudgetType.cs" />
+    <Compile Include="DataModel\CustomModel\Budget\DropDownDepartment.cs" />
+    <Compile Include="DataModel\CustomModel\Budget\DropDownItemCatalog.cs" />
+    <Compile Include="DataModel\CustomModel\Budget\FileVersionBudget.cs" />
+    <Compile Include="DataModel\CustomModel\Budget\Headcount.cs" />
+    <Compile Include="DataModel\CustomModel\Budget\HeadCountHR.cs" />
+    <Compile Include="DataModel\CustomModel\Budget\Scrap.cs" />
+    <Compile Include="DataModel\CustomModel\Budget\Traveling.cs" />
+    <Compile Include="DataModel\CustomModel\Edi\EdiStatus.cs" />
+    <Compile Include="DataModel\CustomModel\Edi\Edi_SalesOrder.cs" />
+    <Compile Include="DataModel\CustomModel\Edi\PosGroup.cs" />
+    <Compile Include="DataModel\CustomModel\Edi\SOrder.cs" />
+    <Compile Include="DataModel\CustomModel\SAP\BpArea.cs" />
+    <Compile Include="DataModel\CustomModel\SAP\BpCountry.cs" />
+    <Compile Include="DataModel\CustomModel\SAP\BpPriceGroup.cs" />
+    <Compile Include="DataModel\CustomModel\SAP\BpSales.cs" />
+    <Compile Include="DataModel\CustomModel\SAP\BpAddressAll.cs" />
+    <Compile Include="DataModel\CustomModel\SAP\BpAddress.cs" />
+    <Compile Include="DataModel\CustomModel\SAP\BpEmailList.cs" />
+    <Compile Include="DataModel\CustomModel\SAP\BpXY.cs" />
+    <Compile Include="DataModel\CustomModel\SAP\BpXY_GroupBy.cs" />
+    <Compile Include="DataModel\CustomModel\SAP\Mapping\CountryRegion.cs" />
+    <Compile Include="DataModel\CustomModel\SAP\Mapping\CustomerType.cs" />
+    <Compile Include="DataModel\CustomModel\SAP\PriceList.cs" />
+    <Compile Include="DataModel\CustomModel\SAP\QuotationTax.cs" />
+    <Compile Include="DataModel\CustomModel\SAP\ReturnToken.cs" />
+    <Compile Include="DataModel\CustomModel\SAP\SalesOrder\SalesHeader.cs" />
+    <Compile Include="DataModel\CustomModel\SAP\SalesOrder\SalesItem.cs" />
+    <Compile Include="DataModel\CustomModel\SAP\SalesOrder\SalesPartner.cs" />
+    <Compile Include="DataModel\CustomModel\SAP\SalesOrder\SalesSchedule.cs" />
+    <Compile Include="DataModel\CustomModel\SAP\SapLessMoqOrder.cs" />
+    <Compile Include="DataModel\CustomModel\SAP\SapMiddleData.cs" />
+    <Compile Include="DataModel\CustomModel\SAP\SapRate.cs" />
+    <Compile Include="DataModel\CustomModel\SAP\SalesOrder\SapSalesOrder.cs" />
+    <Compile Include="DataModel\CustomModel\Vote\VoteList.cs" />
+    <Compile Include="DataModel\CustomModel\Vote\VoteResult.cs" />
+    <Compile Include="Models\Budget_Capex.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Budget_Cost.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Budget_CostTravelingMapping.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Budget_DepartmentReport.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Budget_DeptExpense.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Budget_DeptKPI.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Budget_FileVersionBudget.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Budget_HeadCount.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Budget_HeadCountHR.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Budget_LoginReviewCommonCost.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Budget_LoginReviewReport.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Budget_LoginUploadCommonCost.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Budget_LoginUploadReport.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Budget_Scrap.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Budget_Traveling.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ButtonLog.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Country.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DynamicEntity.cs" />
+    <Compile Include="Models\Edi_Customer.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Edi_Pos.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Edi_SalesHeader.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Edi_SalesHeader_855.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Edi_SalesItem.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Edi_SalesItem_855.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Edi_SalesPartner.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Edi_SalesSchedule.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Edi_SalesSchedule_855.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ErrorLog.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ItemCatalog.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Pos.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PosColumnMap.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PosData.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PosOrderMapping.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ReportFile.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Repository\EDI\Implement\Repository.cs" />
+    <Compile Include="Models\Repository\EDI\Interface\IRepository.cs" />
+    <Compile Include="Models\SAP_PriceList.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Vote_ItemCatalog.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Vote_Mapping.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Service\Implement\Budget\BudgetExcelUploadService.cs" />
+    <Compile Include="Service\Implement\Budget\BudgetReviewReport.cs" />
+    <Compile Include="Service\Implement\Budget\BudgetLoginReviewService.cs" />
+    <Compile Include="Service\Implement\Common\CommonFileService.cs" />
+    <Compile Include="Service\Implement\Common\CommonService.cs" />
+    <Compile Include="Service\Implement\Edi\EdiService.cs" />
+    <Compile Include="Service\Implement\Edi\PosExcelUploadService.cs" />
+    <Compile Include="Service\Implement\FileService.cs" />
+    <Compile Include="Service\Implement\SAP\SapEDIService.cs" />
+    <Compile Include="Service\Implement\SAP\SapExcelUploadService.cs" />
+    <Compile Include="Service\Implement\Table\Edi_SalesSchedule_855Service.cs" />
+    <Compile Include="Service\Implement\Table\Edi_SalesItem_855Service.cs" />
+    <Compile Include="Service\Implement\Table\Edi_SalesHeader_855Service.cs" />
+    <Compile Include="Service\Implement\Table\Edi_SalesScheduleService.cs" />
+    <Compile Include="Service\Implement\Table\Edi_SalesPartnerService.cs" />
+    <Compile Include="Service\Implement\Table\Edi_SalesItemService.cs" />
+    <Compile Include="Service\Implement\Table\Edi_SalesHeaderService.cs" />
+    <Compile Include="Service\Implement\Table\Edi_CustomerService.cs" />
+    <Compile Include="Service\Implement\Table\Budget_CostTravelingMappingService.cs" />
+    <Compile Include="Service\Implement\Table\Budget_CostService.cs" />
+    <Compile Include="Service\Implement\Table\Budget_HeadCountService.cs" />
+    <Compile Include="Service\Implement\Table\Budget_LoginReviewCommonCostService.cs" />
+    <Compile Include="Service\Implement\Table\Budget_LoginUploadCommonCostService.cs" />
+    <Compile Include="Service\Implement\Table\Budget_LoginReviewReportService.cs" />
+    <Compile Include="Service\Implement\Table\Budget_LoginUploadReportService.cs" />
+    <Compile Include="Service\Implement\Table\Edi_PosService.cs" />
+    <Compile Include="Service\Implement\Table\ButtonLogService.cs" />
+    <Compile Include="Service\Implement\Table\Vote_Mapping.cs" />
+    <Compile Include="Service\Implement\Table\Vote_ItemCatalog.cs" />
+    <Compile Include="Service\Implement\Table\Budget_TravelingService.cs" />
+    <Compile Include="Service\Implement\Table\Budget_ScrapService.cs" />
+    <Compile Include="Service\Implement\Table\Budget_FileVersionBudgetService.cs" />
+    <Compile Include="Service\Implement\Table\Budget_DeptKPIService.cs" />
+    <Compile Include="Service\Implement\Table\Budget_DeptExpenseService.cs" />
+    <Compile Include="Service\Implement\Table\Budget_CapexService.cs" />
+    <Compile Include="Service\Implement\Table\ErrorLogService.cs" />
+    <Compile Include="Service\Implement\Table\SAP_PriceListService.cs" />
+    <Compile Include="Service\Implement\Table\ItemCatalogService.cs" />
+    <Compile Include="Service\Implement\LoginService.cs" />
+    <Compile Include="Service\Implement\PosColumnMapService.cs" />
+    <Compile Include="Service\Implement\PosDataService.cs" />
+    <Compile Include="Service\Implement\Report\ReportFileService.cs" />
+    <Compile Include="Service\Implement\Table\CountryService.cs" />
+    <Compile Include="Service\Implement\Table\PosOrderMappingService.cs" />
+    <Compile Include="Service\Implement\Table\Budget_HeadCountHRService.cs" />
+    <Compile Include="Service\Implement\Table\PosService.cs" />
+    <Compile Include="Service\Implement\Table\Budget_DepartmentReportService.cs" />
+    <Compile Include="Service\Implement\Table\ReportFileService.cs" />
+    <Compile Include="Service\Implement\UploadLogService.cs" />
+    <Compile Include="Service\Implement\Vote\VoteService.cs" />
+    <Compile Include="Service\Interface\Budget\IBudgetExcelUploadService.cs" />
+    <Compile Include="Service\Interface\Budget\IBudgetReviewReportService.cs" />
+    <Compile Include="Service\Interface\Budget\IBudgetLoginReviewService.cs" />
+    <Compile Include="Service\Interface\Common\ICommonService.cs" />
+    <Compile Include="Service\Interface\Common\ICommonFileService.cs" />
+    <Compile Include="Service\Interface\Edi\IEdiService .cs" />
+    <Compile Include="Service\Interface\Edi\IPosExcelUploadService.cs" />
+    <Compile Include="Service\Interface\IFileService.cs" />
+    <Compile Include="Service\Interface\SAP\ISapEDIService.cs" />
+    <Compile Include="Service\Interface\SAP\ISapExcelUploadService.cs" />
+    <Compile Include="Service\Interface\Table\IEdi_SalesSchedule_855Service.cs" />
+    <Compile Include="Service\Interface\Table\IEdi_SalesItem_855Service.cs" />
+    <Compile Include="Service\Interface\Table\IEdi_SalesHeader_855.cs" />
+    <Compile Include="Service\Interface\Table\IEdi_SalesScheduleService.cs" />
+    <Compile Include="Service\Interface\Table\IEdi_SalesPartnerService.cs" />
+    <Compile Include="Service\Interface\Table\IEdi_SalesItemService.cs" />
+    <Compile Include="Service\Interface\Table\IEdi_SalesHeaderService.cs" />
+    <Compile Include="Service\Interface\Table\IEdi_CustomerService.cs" />
+    <Compile Include="Service\Interface\Table\IBudget_LoginReviewCommonCostService.cs" />
+    <Compile Include="Service\Interface\Table\IBudget_LoginUploadCommonCostService.cs" />
+    <Compile Include="Service\Interface\Table\IBudget_LoginReviewReportService.cs" />
+    <Compile Include="Service\Interface\Table\IBudget_LoginUploadReportService.cs" />
+    <Compile Include="Service\Interface\Table\IBudget_CostTravelingMappingService.cs" />
+    <Compile Include="Service\Interface\Table\IBudget_CostService.cs" />
+    <Compile Include="Service\Interface\Table\IBudget_HeadCountService.cs" />
+    <Compile Include="Service\Interface\Table\IEdi_PosService.cs" />
+    <Compile Include="Service\Interface\Table\IButtonLogService.cs" />
+    <Compile Include="Service\Interface\Table\IVote_Mapping.cs" />
+    <Compile Include="Service\Interface\Table\IVote_ItemCatalog.cs" />
+    <Compile Include="Service\Interface\Table\IBudget_TravelingService.cs" />
+    <Compile Include="Service\Interface\Table\IBudget_ScrapService.cs" />
+    <Compile Include="Service\Interface\Table\IBudget_FileVersionBudgetService.cs" />
+    <Compile Include="Service\Interface\Table\IBudget_DeptKPIService.cs" />
+    <Compile Include="Service\Interface\Table\IBudget_DeptExpenseService.cs" />
+    <Compile Include="Service\Interface\Table\IBudget_CapexService.cs" />
+    <Compile Include="Service\Interface\Table\IBudget_DepartmentReportService.cs" />
+    <Compile Include="Service\Interface\Table\IErrorLogService.cs" />
+    <Compile Include="Service\Interface\Table\ISAP_PriceListService.cs" />
+    <Compile Include="Service\Interface\Table\IItemCatalogService.cs" />
+    <Compile Include="Service\Interface\ILoginService.cs" />
+    <Compile Include="Service\Interface\IPosColumnMapService.cs" />
+    <Compile Include="Service\Interface\IPosDataService.cs" />
+    <Compile Include="Service\Interface\ITokenService.cs" />
+    <Compile Include="Service\Interface\IUploadLogService.cs" />
+    <Compile Include="Service\Implement\TokenService.cs" />
+    <Compile Include="Controllers\EDI\FileController.cs" />
+    <Compile Include="Controllers\TokenController.cs" />
+    <Compile Include="Filters\AllExceptionResponse.cs" />
+    <Compile Include="Filters\ApiResultAttribute.cs" />
+    <Compile Include="Filters\Authorization\BaseJwtAuthActionFilter.cs" />
+    <Compile Include="Filters\Authorization\JwtAuthActionForCustomer.cs" />
+    <Compile Include="Filters\ForceHttpsAttribute.cs" />
+    <Compile Include="Filters\Authorization\JwtAuthActionFilter.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\LogHandler.cs" />
+    <Compile Include="DataModel\CustomModel\ApiResultEntity.cs" />
+    <Compile Include="DataModel\JWT\LoginData.cs" />
+    <Compile Include="DataModel\CustomModel\SAP\Budget.cs" />
+    <Compile Include="DataModel\JWT\JwtAuthObject.cs" />
+    <Compile Include="DataModel\JWT\Token.cs" />
+    <Compile Include="Models\EDI.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EDI.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EDI.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EDI.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EDI.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Login.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UploadLog.cs">
+      <DependentUpon>EDI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\Interface\Report\IReportFileService.cs" />
+    <Compile Include="Service\Interface\Table\ICountryService.cs" />
+    <Compile Include="Service\Interface\Table\IPosOrderMappingService.cs" />
+    <Compile Include="Service\Interface\Table\IBudget_HeadCountHRService.cs" />
+    <Compile Include="Service\Interface\Table\IPosService.cs" />
+    <Compile Include="Service\Interface\Table\IReportFileService.cs" />
+    <Compile Include="Service\Interface\Vote\IVoteService.cs" />
+    <Compile Include="ThirdParty\SAP\ISapConnectorInterface.cs" />
+    <Compile Include="ThirdParty\SAP\SapConnectorInterface.cs" />
+    <Compile Include="ThirdParty\SAP\ISapService.cs" />
+    <Compile Include="ThirdParty\SAP\SapConnection.cs" />
+    <Compile Include="ThirdParty\SAP\SapDestinationConfig.cs" />
+    <Compile Include="ThirdParty\SAP\SapService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <EntityDeploy Include="Models\EDI.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EDI.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\EDI.edmx.diagram">
+      <DependentUpon>EDI.edmx</DependentUpon>
+    </Content>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\PublishProfiles\ALTW_Report-TEST.pubxml" />
+    <None Include="Properties\PublishProfiles\ALTW_Report.pubxml" />
+    <None Include="Properties\PublishProfiles\ALTW_Report_API-TEST.pubxml" />
+    <None Include="Properties\PublishProfiles\ALTW_Report_API.pubxml" />
+    <None Include="Properties\PublishProfiles\ALTW_Report_API_PRD.pubxml" />
+    <None Include="Properties\PublishProfiles\ALTW_Report_PRD.pubxml" />
+    <None Include="Properties\PublishProfiles\Local.pubxml" />
+    <Content Include="Setting.json" />
+    <None Include="Properties\PublishProfiles\TEST.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\logs\" />
+    <Folder Include="Controllers\Customer\" />
+    <Folder Include="scripts\View\" />
+    <Folder Include="Service\scripts\" />
+    <Folder Include="Views\Default\" />
+    <Folder Include="Views\SAPExcelUpload\" />
+    <Folder Include="Views\SAP_PriceList\" />
+    <Folder Include="View\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52006</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52006/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>此專案參考這部電腦上所缺少的 NuGet 封裝。請啟用 NuGet 封裝還原，以下載該封裝。如需詳細資訊，請參閱 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的檔案是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

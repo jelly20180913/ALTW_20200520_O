@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+   
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="/scripts/js/ThirdParty/Jquery211.js"></script> 
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> 
+    <!------ Include the above in your HEAD tag ---------->
+    <link rel="stylesheet" type="text/css" href="../CSS/UploadFile.css">   
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+    <script src="../scripts/js/Global.js"></script> 
+    <script src="../scripts/js/UploadFile.js"></script>
+   
+</head>
+<body id="LoginForm">
+    <div class="input-group">
+        <span class="input-group-btn">
+            <button id="fake-file-button-browse" type="button" class="btn btn-default">
+                <span class="glyphicon glyphicon-file"></span>
+            </button>
+        </span>
+        <input type="file" id="files-input-upload" style="display:none"  accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+        <input type="text" id="fake-file-input-name" disabled="disabled" placeholder="please upload your file excel" class="form-control">
+        <span class="input-group-btn">
+            <button type="button" class="btn btn-default"  id="fake-file-button-upload">
+                <span class="glyphicon glyphicon-upload"></span>
+            </button>
+        </span>
+    </div>
+    <span id="description">the speed of upload is about 200 row/s,please wait</span>
+    <div id="description">
+        please select the mapping model
+        <div class="dropdown" id="model">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Model
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="posOrderMappingModel">
+              
+            </div>
+            <input type="hidden" id="modelId"   value="">
+        </div>
+        
+    </div>
+    <div class="form-group"> 
+        <textarea class="form-control rounded-0" id="errorTxt" rows="20"></textarea>
+    </div>
+    <!------ <div></div><textarea rows="20" cols="160"> </textarea> </div> ---------->
+    <footer><small class="pull-right">copyright@ <a href="http://www.amphenol.com.tw/CH/About_01.asp">Amphenol LTW Technology Co.,Ltd</a></small></footer>
+
+    <img src="../Image/ajax-loader.gif"  id="loadIng" height="42" width="42">
+
+     <script type="text/javascript">
+    </script>
+</body>
+</html>

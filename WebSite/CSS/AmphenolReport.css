@@ -1,0 +1,118 @@
+﻿/*body{background-color: #ececec;}*/
+img {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 50%;
+}
+
+.ay-a {
+    color: #000;
+}
+
+h3 {
+    margin: 0;
+}
+
+.v-red {
+    color: #dc0000 !important;
+}
+
+.v-purple {
+    color: #33FF33 !important;
+}
+
+.v-gray {
+    color: #999 !important;
+}
+.v-black {
+    color: #000000 !important;
+}
+
+.v-inline-block {
+    display: inline-block;
+}
+
+.v-text-center {
+    text-align: center;
+}
+
+.v-f22 {
+    font-size: 22px !important;
+    color: #dc0000 !important;
+}
+
+.header {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.c01-0 {
+    background-color: #f4f4f4;
+    padding-bottom: 5px;
+    height: 1500px;
+    margin-bottom: 20px;
+}
+
+.c01 {
+    background-color: #f4f4f4;
+    padding-bottom: 5px;
+    min-height: 350px;
+    margin-bottom: 20px;
+}
+
+.c03 {
+    background-color: #f4f4f4;
+    padding-bottom: 5px;
+    min-height: 496px;
+    margin-bottom: 20px;
+}
+
+.c00 {
+    background-color: #f4f4f4;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+.v-title {
+    background-color: #e4e4e4;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+    .v-title h3 {
+        font-size: 16px !important;
+    }
+
+.c01 ul li, .c00 ul li, .c03 ul li, .c01-0 ul li {
+    padding: 0;
+    font-size: 18px;
+    list-style: none;
+}
+
+ul li i {
+    padding-right: 10px;
+}
+
+ul {
+    padding-right: 10px;
+}
+
+.v-span-gray-w {
+    font-size: 14px !important;
+    color: #999;
+}
+
+.btn-download {
+    display: inline-block;
+    white-space: normal;
+    margin-bottom: 5px;
+    background-color: #99BBFF;
+    border:3px black  double;
+    
+}
+#reportDownload {
+   display: inline-block;position:absolute;right:0px; 
+}
+.fake-button-download { 
+    margin:5px 5px 5px 5px;
+}

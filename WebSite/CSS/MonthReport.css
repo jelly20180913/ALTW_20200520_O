@@ -1,0 +1,213 @@
+﻿@charset "utf-8";
+/* CSS Document */
+body {
+    padding: 0px;
+    margin: 0px;
+    font-size: 12px;
+    font-family: "Times New Roman", Arial, Helvetica, sans-serif;
+}
+
+img {
+    border: 0px;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    color: #055BA6;
+}
+
+a:hover, a:active {
+    color: #FF9900;
+}
+
+#LAYOUT {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 970px;
+}
+
+#TOP {
+    border-top: 2px solid #528ddc;
+    height: 80px;
+    overflow: hidden;
+    text-align: left;
+}
+
+    #TOP #LOGO {
+        float: left;
+        width: 200px;
+    }
+
+    #TOP #NAV {
+        float: left;
+        width: 600px;
+        padding-top: 20px;
+    }
+
+        #TOP #NAV ul {
+            padding: 0px 10px;
+            margin: 0px;
+            text-align: left;
+        }
+
+            #TOP #NAV ul li {
+                float: left;
+                padding: 0px 5px;
+                list-style: none;
+            }
+
+    #TOP #LINK {
+        float: left;
+        width: 170px;
+        text-align: center;
+    }
+
+#BANNER {
+    clear: both;
+    width: 970px;
+    height: 150px;
+    background-image: url(../images/banner.jpg);
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+#CONTAIN {
+    clear: both;
+    width: 192px;
+    overflow: hidden;
+}
+
+    #CONTAIN #LEFT {
+        float: left;
+        width: 200px;
+        overflow: hidden;
+        text-align: left;
+    }
+
+        #CONTAIN #LEFT #Menu td {
+            background-image: url(../images/btn-bg.jpg);
+            background-repeat: no-repeat;
+            line-height: 27px;
+            padding-left: 15px;
+            padding-bottom: 3px;
+        }
+
+        #CONTAIN #LEFT #Menu a:link, #CONTAIN #LEFT #Menu a:visited {
+            color: #333333;
+            text-decoration: none;
+        }
+
+        #CONTAIN #LEFT #Menu a:hover, #CONTAIN #LEFT #Menu a:active {
+            color: #3b81c3;
+        }
+
+        #CONTAIN #LEFT .border_box {
+            border: 1px solid #eeeeee;
+            margin: 8px 0px;
+            padding: 3px 0px;
+            text-align: center;
+        }
+
+    #CONTAIN #MAIN {
+        float: left;
+        width: 570px;
+        overflow: hidden;
+        text-align: left;
+    }
+
+        #CONTAIN #MAIN #Main_iner {
+            padding: 20px 0px 20px 0px;
+        }
+
+            #CONTAIN #MAIN #Main_iner .MainHeader {
+                background-image: url(../images/bg-title.jpg);
+                width: 760px;
+                height: 36px;
+            }
+
+                #CONTAIN #MAIN #Main_iner .MainHeader th {
+                    text-align: left;
+                    padding-left: 20px;
+                    font-size: 18px;
+                }
+
+                #CONTAIN #MAIN #Main_iner .MainHeader td {
+                    text-align: right;
+                    padding-right: 20px;
+                    font-size: 12px;
+                    color: #333333;
+                }
+
+            #CONTAIN #MAIN #Main_iner .MainContent td {
+                vertical-align: top;
+                text-align: justify;
+                padding: 10px 10px;
+                line-height: 150%;
+                color: #333333;
+            }
+
+#FOOTER {
+    width: 100%;
+}
+
+    #FOOTER table {
+        background-color: #E6E6E6;
+        color: #9C9C9C;
+        width: 100%;
+    }
+
+        #FOOTER table td {
+            padding: 5px 5px;
+        }
+
+            #FOOTER table td.info {
+                font-size: 11px;
+            }
+
+        #FOOTER table a:link, #FOOTER table a:visted {
+            color: #A6A6A6;
+        }
+
+        #FOOTER table a:hover {
+            color: #FFFFFF;
+        }
+
+#Header .MainHeader {
+    background-image: url(../images/bg-title.jpg);
+    width: 760px;
+    height: 36px;
+}
+
+    #Header .MainHeader th {
+        text-align: left;
+        padding-left: 20px;
+        font-size: 18px;
+    }
+
+body {
+    background-color: #ececec;
+}
+
+.header {
+    background: url('../../image/ALTW logo.png') top center;
+    width: 100%;
+    height: 40px;
+    background-repeat: no-repeat;
+    margin-top: 5px;
+}
+
+.con {   
+    background: top center;
+    width: 100%;
+    height: 768px;
+    background-repeat: no-repeat;
+    background-size:contain;
+}
+
+.footer {
+    background: url(img/footer-v2.jpg) center;
+    width: 100%;
+    height: 375px;
+    background-repeat: no-repeat;
+}

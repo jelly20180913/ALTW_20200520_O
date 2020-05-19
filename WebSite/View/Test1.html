@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script src="../scripts/js/Budget/angular.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>-->
+    <script src="../scripts/js/test1.js"></script>
+    <style>
+        table {border-collapse:collapse;}
+        table, th, td {
+            border:1px solid #ddd;
+        }
+        th,td{padding:5px;}
+        th {
+            background-color:#4CAF50;
+            color:white;
+        }
+        tr:hover{background-color:#f5f5f5;}
+    </style>
+</head>
+<body ng-app="myApp">
+        <div ng-controller="myController">
+            <input type="text" id="account" value="test">
+            <button id="testpost" ng-click="ngpost()">post</button><br />
+            <hr />
+            <table>
+                <tr>
+                    <th>Account</th>
+                    <th>Factory</th>
+                    <th>DepartmentId</th>
+                    <th>DepartmentName</th>
+                    <th>Lastest Upload</th>
+                    <th>Upload</th>
+                </tr>
+                <tr ng-repeat="emps in employees | orderBy : 'Account'">
+                    <td>{{emps.Account}}</td>
+                    <td>{{emps.Factory}}</td>
+                    <td>{{emps.DepartmentId}}</td>
+                    <td>{{emps.DepartmentName}}</td>
+                    <td>Not yet</td>
+                    <td><a href="uploadreport.htm?Factory={{emps.Factory}}&Dept={{emps.DepartmentId}}">Upload</a></td>
+                </tr>
+            </table>
+        </div>
+    </body>
+<script>
+    testpost.focus();
+</script>
+</html>

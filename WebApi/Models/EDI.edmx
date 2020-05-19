@@ -1,0 +1,2221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EDIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Budget_Capex">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemId_AssetExp" Type="varchar" MaxLength="20" />
+          <Property Name="ProjectName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProjectRemark" Type="nvarchar" MaxLength="255" />
+          <Property Name="ItemId_AssetExpType" Type="varchar" MaxLength="20" />
+          <Property Name="ItemId_Purpose" Type="varchar" MaxLength="20" />
+          <Property Name="SepLast" Type="int" />
+          <Property Name="OctLast" Type="int" />
+          <Property Name="NovLast" Type="int" />
+          <Property Name="DecLast" Type="int" />
+          <Property Name="Jan" Type="int" />
+          <Property Name="Feb" Type="int" />
+          <Property Name="Mar" Type="int" />
+          <Property Name="Apr" Type="int" />
+          <Property Name="May" Type="int" />
+          <Property Name="Jun" Type="int" />
+          <Property Name="Jul" Type="int" />
+          <Property Name="Aug" Type="int" />
+          <Property Name="Sep" Type="int" />
+          <Property Name="Oct" Type="int" />
+          <Property Name="Nov" Type="int" />
+          <Property Name="Dec" Type="int" />
+          <Property Name="Date" Type="varchar" MaxLength="20" />
+          <Property Name="DepartmentId" Type="varchar" MaxLength="20" />
+          <Property Name="Version" Type="varchar" MaxLength="20" />
+          <Property Name="Factory" Type="varchar" MaxLength="10" />
+          <Property Name="JulLast" Type="int" />
+          <Property Name="AugLast" Type="int" />
+          <Property Name="InternalOrder" Type="varchar" MaxLength="10" />
+          <Property Name="ProjectAmount" Type="int" />
+        </EntityType>
+        <EntityType Name="Budget_Cost">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CostCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CostName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ItemId_CostCommon" Type="varchar" MaxLength="20" />
+          <Property Name="IsDel" Type="bit" />
+          <Property Name="IsTraveling" Type="bit" />
+        </EntityType>
+        <EntityType Name="Budget_CostTravelingMapping">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CostCode" Type="varchar" MaxLength="20" />
+          <Property Name="ItemId_TravelingType" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Budget_DepartmentReport">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Factory" Type="varchar" MaxLength="10" />
+          <Property Name="DepartmentId" Type="varchar" MaxLength="20" />
+          <Property Name="DepartmentName" Type="nvarchar" MaxLength="30" />
+          <Property Name="DeptExpense" Type="char" MaxLength="1" />
+          <Property Name="Scrap" Type="char" MaxLength="1" />
+          <Property Name="Travelling" Type="char" MaxLength="1" />
+          <Property Name="KPI" Type="char" MaxLength="1" />
+          <Property Name="Headcount" Type="char" MaxLength="1" />
+          <Property Name="Capex" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Budget_DeptExpense">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="YTD" Type="int" />
+          <Property Name="Jan" Type="int" />
+          <Property Name="Feb" Type="int" />
+          <Property Name="Mar" Type="int" />
+          <Property Name="Apr" Type="int" />
+          <Property Name="May" Type="int" />
+          <Property Name="Jun" Type="int" />
+          <Property Name="Jul" Type="int" />
+          <Property Name="Aug" Type="int" />
+          <Property Name="Sep" Type="int" />
+          <Property Name="Oct" Type="int" />
+          <Property Name="Nov" Type="int" />
+          <Property Name="Dec" Type="int" />
+          <Property Name="Date" Type="varchar" MaxLength="20" />
+          <Property Name="DepartmentId" Type="varchar" MaxLength="20" />
+          <Property Name="Version" Type="varchar" MaxLength="20" />
+          <Property Name="Factory" Type="varchar" MaxLength="10" />
+          <Property Name="CostCode" Type="varchar" MaxLength="20" />
+          <Property Name="ItemId_CostCommon" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Budget_DeptKPI">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GoalName" Type="nvarchar" MaxLength="250" />
+          <Property Name="PIC_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastYear" Type="nvarchar" MaxLength="200" />
+          <Property Name="YTD" Type="nvarchar" MaxLength="200" />
+          <Property Name="Jan" Type="nvarchar" MaxLength="200" />
+          <Property Name="Feb" Type="nvarchar" MaxLength="200" />
+          <Property Name="Mar" Type="nvarchar" MaxLength="200" />
+          <Property Name="Apr" Type="nvarchar" MaxLength="200" />
+          <Property Name="May" Type="nvarchar" MaxLength="200" />
+          <Property Name="Jun" Type="nvarchar" MaxLength="200" />
+          <Property Name="Jul" Type="nvarchar" MaxLength="200" />
+          <Property Name="Aug" Type="nvarchar" MaxLength="200" />
+          <Property Name="Sep" Type="nvarchar" MaxLength="200" />
+          <Property Name="Oct" Type="nvarchar" MaxLength="200" />
+          <Property Name="Nov" Type="nvarchar" MaxLength="200" />
+          <Property Name="Dec" Type="nvarchar" MaxLength="200" />
+          <Property Name="Date" Type="varchar" MaxLength="20" />
+          <Property Name="DepartmentId" Type="varchar" MaxLength="20" />
+          <Property Name="Version" Type="varchar" MaxLength="20" />
+          <Property Name="Factory" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Budget_FileVersionBudget">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="varchar" MaxLength="20" />
+          <Property Name="Version" Type="varchar" MaxLength="20" />
+          <Property Name="Approve" Type="bit" />
+          <Property Name="Account" Type="varchar" MaxLength="20" />
+          <Property Name="ItemId_BudgetName" Type="varchar" MaxLength="20" />
+          <Property Name="DepartmentId" Type="varchar" MaxLength="20" />
+          <Property Name="Factory" Type="varchar" MaxLength="10" />
+          <Property Name="UploadLogId" Type="int" />
+        </EntityType>
+        <EntityType Name="Budget_HeadCount">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Account" Type="varchar" MaxLength="20" />
+          <Property Name="SepLast" Type="int" />
+          <Property Name="OctLast" Type="int" />
+          <Property Name="NovLast" Type="int" />
+          <Property Name="DecLast" Type="int" />
+          <Property Name="Jan" Type="int" />
+          <Property Name="Feb" Type="int" />
+          <Property Name="Mar" Type="int" />
+          <Property Name="Apr" Type="int" />
+          <Property Name="May" Type="int" />
+          <Property Name="Jun" Type="int" />
+          <Property Name="Jul" Type="int" />
+          <Property Name="Aug" Type="int" />
+          <Property Name="Sep" Type="int" />
+          <Property Name="Oct" Type="int" />
+          <Property Name="Nov" Type="int" />
+          <Property Name="Dec" Type="int" />
+          <Property Name="Date" Type="varchar" MaxLength="20" />
+          <Property Name="DepartmentId" Type="varchar" MaxLength="20" />
+          <Property Name="Version" Type="varchar" MaxLength="20" />
+          <Property Name="JulLast" Type="int" />
+          <Property Name="AugLast" Type="int" />
+          <Property Name="Factory" Type="varchar" MaxLength="10" />
+          <Property Name="PartTime" Type="bit" />
+          <Property Name="CurrentHC" Type="bit" />
+          <Property Name="ItemId_Reason" Type="varchar" MaxLength="20" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Budget_HeadCountHR">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Account" Type="varchar" MaxLength="20" />
+          <Property Name="ItemId_HR" Type="varchar" MaxLength="20" />
+          <Property Name="ItemId_DirectType" Type="varchar" MaxLength="20" />
+          <Property Name="IsDel" Type="bit" />
+          <Property Name="ItemId_JobFunction" Type="varchar" MaxLength="20" />
+          <Property Name="ItemId_Title" Type="varchar" MaxLength="20" />
+          <Property Name="AltwName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Budget_LoginReviewCommonCost">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Account" Type="varchar" MaxLength="20" />
+          <Property Name="Factory" Type="varchar" MaxLength="10" />
+          <Property Name="ItemId_CostCommon" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Budget_LoginReviewReport">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Account" Type="varchar" MaxLength="20" />
+          <Property Name="DepartmentId" Type="varchar" MaxLength="20" />
+          <Property Name="Factory" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Budget_LoginUploadCommonCost">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Account" Type="varchar" MaxLength="20" />
+          <Property Name="Factory" Type="varchar" MaxLength="10" />
+          <Property Name="ItemId_CostCommon" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Budget_LoginUploadReport">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Account" Type="varchar" MaxLength="20" />
+          <Property Name="DepartmentId" Type="varchar" MaxLength="20" />
+          <Property Name="Factory" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Budget_Scrap">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemId_ScrapType" Type="varchar" MaxLength="20" />
+          <Property Name="PartNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="Reason" Type="nvarchar" MaxLength="255" />
+          <Property Name="Month" Type="varchar" MaxLength="20" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="PurchasePrice" Type="int" />
+          <Property Name="BookValue" Type="int" />
+          <Property Name="Date" Type="varchar" MaxLength="20" />
+          <Property Name="DepartmentId" Type="varchar" MaxLength="20" />
+          <Property Name="Version" Type="varchar" MaxLength="20" />
+          <Property Name="Factory" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Budget_Traveling">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Account" Type="varchar" MaxLength="20" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="Days" Type="int" />
+          <Property Name="ItemId_TravelingPurpose" Type="varchar" MaxLength="20" />
+          <Property Name="ItemId_TravelingType" Type="varchar" MaxLength="20" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+          <Property Name="Jan" Type="int" />
+          <Property Name="Feb" Type="int" />
+          <Property Name="Mar" Type="int" />
+          <Property Name="Apr" Type="int" />
+          <Property Name="May" Type="int" />
+          <Property Name="Jun" Type="int" />
+          <Property Name="Jul" Type="int" />
+          <Property Name="Aug" Type="int" />
+          <Property Name="Sep" Type="int" />
+          <Property Name="Oct" Type="int" />
+          <Property Name="Nov" Type="int" />
+          <Property Name="Dec" Type="int" />
+          <Property Name="Date" Type="varchar" MaxLength="20" />
+          <Property Name="DepartmentId" Type="varchar" MaxLength="20" />
+          <Property Name="Version" Type="varchar" MaxLength="20" />
+          <Property Name="AltwName" Type="nvarchar" MaxLength="20" />
+          <Property Name="Factory" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="ButtonLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FK_LoginId" Type="int" />
+          <Property Name="Button" Type="varchar" MaxLength="20" />
+          <Property Name="Remark" Type="varchar" MaxLength="500" />
+          <Property Name="ClickTime" Type="varchar" MaxLength="20" />
+          <Property Name="Page" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EnglishName" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Code" Type="varchar" MaxLength="10" />
+          <Property Name="Region" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Edi_Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SapCustomerId" Type="varchar" MaxLength="20" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="100" />
+          <Property Name="RSSBus_PortId" Type="varchar" MaxLength="50" />
+          <Property Name="Mode" Type="bit" />
+          <Property Name="SalesEmail" Type="varchar" MaxLength="50" />
+          <Property Name="DOC_TYPE" Type="varchar" MaxLength="20" />
+          <Property Name="SALES_ORG" Type="varchar" MaxLength="20" />
+          <Property Name="DISTR_CHAN" Type="varchar" MaxLength="20" />
+          <Property Name="DIVISION" Type="varchar" MaxLength="20" />
+          <Property Name="ReceiverId" Type="varchar" MaxLength="20" />
+          <Property Name="PartNumberIndex" Type="int" />
+          <Property Name="EdiType" Type="int" />
+        </EntityType>
+        <EntityType Name="Edi_Pos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="20" />
+          <Property Name="Distributor" Type="varchar" MaxLength="50" />
+          <Property Name="Address" Type="varchar" MaxLength="250" />
+          <Property Name="City" Type="varchar" MaxLength="250" />
+          <Property Name="State" Type="varchar" MaxLength="20" />
+          <Property Name="ZIP" Type="varchar" MaxLength="250" />
+          <Property Name="Series" Type="varchar" MaxLength="50" />
+          <Property Name="PartNo" Type="varchar" MaxLength="50" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Cost" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ResellingExt" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ACCT" Type="varchar" MaxLength="50" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="255" />
+          <Property Name="MarketCode" Type="varchar" MaxLength="100" />
+          <Property Name="Market" Type="varchar" MaxLength="100" />
+          <Property Name="SubSegmentCode" Type="varchar" MaxLength="100" />
+          <Property Name="SubSegment" Type="varchar" MaxLength="100" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="255" />
+          <Property Name="ShipDate" Type="varchar" MaxLength="20" />
+          <Property Name="ShipDate2" Type="varchar" MaxLength="20" />
+          <Property Name="ShipMonth" Type="varchar" MaxLength="20" />
+          <Property Name="ShipQuarter" Type="varchar" MaxLength="20" />
+          <Property Name="CountryCode" Type="varchar" MaxLength="20" />
+          <Property Name="Country" Type="varchar" MaxLength="50" />
+          <Property Name="Region" Type="varchar" MaxLength="20" />
+          <Property Name="FK_LoginId" Type="int" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="CorporateMarket" Type="varchar" MaxLength="100" />
+          <Property Name="YY" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Edi_SalesHeader">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DOC_TYPE" Type="varchar" MaxLength="20" />
+          <Property Name="SALES_ORG" Type="varchar" MaxLength="20" />
+          <Property Name="DISTR_CHAN" Type="varchar" MaxLength="20" />
+          <Property Name="DIVISION" Type="varchar" MaxLength="20" />
+          <Property Name="PURCH_NO_C" Type="varchar" MaxLength="20" />
+          <Property Name="PURCH_DATE" Type="varchar" MaxLength="20" />
+          <Property Name="Is_Proc" Type="varchar" MaxLength="20" />
+          <Property Name="OrderNumber" Type="varchar" MaxLength="20" />
+          <Property Name="DateTime" Type="varchar" MaxLength="20" />
+          <Property Name="CreateBy" Type="varchar" MaxLength="20" />
+          <Property Name="SapCustomerId" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Edi_SalesHeader_855">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PURCH_NO_C" Type="varchar" MaxLength="20" />
+          <Property Name="PURCH_DATE" Type="varchar" MaxLength="20" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="DateTime" Type="varchar" MaxLength="20" />
+          <Property Name="OrderNumber" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Edi_SalesItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderNumber" Type="varchar" MaxLength="20" />
+          <Property Name="ITM_NUMBER" Type="varchar" MaxLength="20" />
+          <Property Name="MATERIAL" Type="varchar" MaxLength="20" />
+          <Property Name="CUST_MAT35" Type="varchar" MaxLength="50" />
+          <Property Name="CustomerItemNumber" Type="varchar" MaxLength="20" />
+          <Property Name="CustomerUnit" Type="varchar" MaxLength="20" />
+          <Property Name="CustomerPrice" Type="varchar" MaxLength="20" />
+          <Property Name="CustomerUnitOfPrice" Type="varchar" MaxLength="20" />
+          <Property Name="DateTime" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Edi_SalesItem_855">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderNumber" Type="varchar" MaxLength="20" />
+          <Property Name="MATERIAL" Type="varchar" MaxLength="20" />
+          <Property Name="CUST_MAT35" Type="varchar" MaxLength="50" />
+          <Property Name="ITM_NUMBER" Type="varchar" MaxLength="20" />
+          <Property Name="TARGET_QTY" Type="varchar" MaxLength="20" />
+          <Property Name="CustomerUnit" Type="varchar" MaxLength="20" />
+          <Property Name="Price" Type="varchar" MaxLength="20" />
+          <Property Name="CustomerItemNumber" Type="varchar" MaxLength="20" />
+          <Property Name="CustomerUnitOfPrice" Type="varchar" MaxLength="20" />
+          <Property Name="DateTime" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Edi_SalesPartner">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderNumber" Type="varchar" MaxLength="20" />
+          <Property Name="PARTN_ROLE" Type="varchar" MaxLength="20" />
+          <Property Name="PARTN_NUMB" Type="varchar" MaxLength="20" />
+          <Property Name="STREET" Type="varchar" MaxLength="100" />
+          <Property Name="CITY" Type="varchar" MaxLength="20" />
+          <Property Name="REGION" Type="varchar" MaxLength="20" />
+          <Property Name="POSTL_CODE" Type="varchar" MaxLength="20" />
+          <Property Name="COUNTRY" Type="varchar" MaxLength="20" />
+          <Property Name="NAME" Type="varchar" MaxLength="20" />
+          <Property Name="TELEPHONE" Type="varchar" MaxLength="20" />
+          <Property Name="DateTime" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Edi_SalesSchedule">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderNumber" Type="varchar" MaxLength="20" />
+          <Property Name="REQ_QTY" Type="varchar" MaxLength="20" />
+          <Property Name="ITM_NUMBER" Type="varchar" MaxLength="20" />
+          <Property Name="SCHED_LINE" Type="varchar" MaxLength="20" />
+          <Property Name="REQ_DATE" Type="varchar" MaxLength="20" />
+          <Property Name="DateTime" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Edi_SalesSchedule_855">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderNumber" Type="varchar" MaxLength="20" />
+          <Property Name="ITM_NUMBER" Type="varchar" MaxLength="20" />
+          <Property Name="CustomerUnit" Type="varchar" MaxLength="20" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="DateTime" Type="varchar" MaxLength="20" />
+          <Property Name="DateTimeCode" Type="varchar" MaxLength="20" />
+          <Property Name="REQ_DATE" Type="varchar" MaxLength="20" />
+          <Property Name="REQ_QTY" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="ErrorLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="10" />
+          <Property Name="Message" Type="nvarchar" MaxLength="255" />
+          <Property Name="Parameter" Type="nvarchar" MaxLength="50" />
+          <Property Name="Module" Type="nvarchar" MaxLength="100" />
+          <Property Name="Class" Type="nvarchar" MaxLength="20" />
+          <Property Name="Date" Type="varchar" MaxLength="10" />
+          <Property Name="UpdateTime" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="ItemCatalog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClassName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="ItemId" Type="varchar" MaxLength="20" />
+          <Property Name="IsDel" Type="bit" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Account" Type="varchar" MaxLength="100" />
+          <Property Name="Password" Type="varchar" MaxLength="100" />
+          <Property Name="Country" Type="nvarchar" MaxLength="20" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="IndexPage" Type="nvarchar" MaxLength="50" />
+          <Property Name="Approve" Type="bit" />
+        </EntityType>
+        <EntityType Name="Pos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="20" />
+          <Property Name="Distributor" Type="varchar" MaxLength="20" />
+          <Property Name="Branch" Type="varchar" MaxLength="50" />
+          <Property Name="Address" Type="varchar" MaxLength="50" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="State" Type="varchar" MaxLength="20" />
+          <Property Name="ZIP" Type="varchar" MaxLength="20" />
+          <Property Name="Series" Type="varchar" MaxLength="50" />
+          <Property Name="PartNo" Type="varchar" MaxLength="50" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="InvoiceNo" Type="varchar" MaxLength="50" />
+          <Property Name="InvoiceDate" Type="varchar" MaxLength="20" />
+          <Property Name="Cost" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ResellingExt" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ACCT" Type="varchar" MaxLength="50" />
+          <Property Name="CustomerName" Type="varchar" MaxLength="255" />
+          <Property Name="MarketCode" Type="varchar" MaxLength="20" />
+          <Property Name="Market" Type="varchar" MaxLength="50" />
+          <Property Name="SubSegmentCode" Type="varchar" MaxLength="20" />
+          <Property Name="SubSegment" Type="varchar" MaxLength="50" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="255" />
+          <Property Name="CustomerPO" Type="varchar" MaxLength="50" />
+          <Property Name="ShipDate" Type="varchar" MaxLength="20" />
+          <Property Name="ShipDate2" Type="varchar" MaxLength="20" />
+          <Property Name="ShipMonth" Type="varchar" MaxLength="20" />
+          <Property Name="ShipQuarter" Type="varchar" MaxLength="20" />
+          <Property Name="CountryCode" Type="varchar" MaxLength="20" />
+          <Property Name="Country" Type="varchar" MaxLength="50" />
+          <Property Name="Region" Type="varchar" MaxLength="20" />
+          <Property Name="FK_LoginId" Type="int" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="PosColumnMap">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Year" Type="varchar" MaxLength="50" />
+          <Property Name="MonthYear" Type="varchar" MaxLength="50" />
+          <Property Name="Distributor" Type="varchar" MaxLength="50" />
+          <Property Name="Customer" Type="varchar" MaxLength="50" />
+          <Property Name="ISOCountryCode" Type="varchar" MaxLength="50" />
+          <Property Name="Country" Type="varchar" MaxLength="50" />
+          <Property Name="SalesArea" Type="varchar" MaxLength="50" />
+          <Property Name="SalesManager" Type="varchar" MaxLength="50" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="PostCode" Type="varchar" MaxLength="50" />
+          <Property Name="PartNo" Type="varchar" MaxLength="50" />
+          <Property Name="BaseCurrency" Type="varchar" MaxLength="50" />
+          <Property Name="Qty" Type="varchar" MaxLength="50" />
+          <Property Name="TotalSalesBaseCurrency" Type="varchar" MaxLength="50" />
+          <Property Name="TotalSalesEUR" Type="varchar" MaxLength="50" />
+          <Property Name="ProductSeries" Type="varchar" MaxLength="50" />
+          <Property Name="Model" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ModelName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PosData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Year" Type="char" MaxLength="4" />
+          <Property Name="MonthYear" Type="varchar" MaxLength="15" />
+          <Property Name="Distributor" Type="varchar" MaxLength="50" />
+          <Property Name="Customer" Type="nvarchar" MaxLength="255" />
+          <Property Name="ISOCountryCode" Type="varchar" MaxLength="10" />
+          <Property Name="Country" Type="varchar" MaxLength="50" />
+          <Property Name="SalesArea" Type="varchar" MaxLength="50" />
+          <Property Name="SalesManager" Type="varchar" MaxLength="50" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="PostCode" Type="varchar" MaxLength="50" />
+          <Property Name="PartNo" Type="varchar" MaxLength="50" />
+          <Property Name="BaseCurrency" Type="varchar" MaxLength="10" />
+          <Property Name="Qty" Type="int" />
+          <Property Name="TotalSalesBaseCurreny" Type="decimal" Precision="36" Scale="18" />
+          <Property Name="TotalSalesEUR" Type="decimal" Precision="36" Scale="18" />
+          <Property Name="ProductSeries" Type="varchar" MaxLength="20" />
+          <Property Name="FK_LoginId" Type="int" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PosOrderMapping">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="int" />
+          <Property Name="Distributor" Type="int" />
+          <Property Name="Branch" Type="int" />
+          <Property Name="Address" Type="int" />
+          <Property Name="City" Type="int" />
+          <Property Name="State" Type="int" />
+          <Property Name="ZIP" Type="int" />
+          <Property Name="Series" Type="int" />
+          <Property Name="PartNo" Type="int" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="InvoiceNo" Type="int" />
+          <Property Name="InvoiceDate" Type="int" />
+          <Property Name="Cost" Type="int" />
+          <Property Name="Price" Type="int" />
+          <Property Name="ResellingExt" Type="int" />
+          <Property Name="ACCT" Type="int" />
+          <Property Name="CustomerName" Type="int" />
+          <Property Name="MarketCode" Type="int" />
+          <Property Name="Market" Type="int" />
+          <Property Name="SubSegmentCode" Type="int" />
+          <Property Name="SubSegment" Type="int" />
+          <Property Name="Remarks" Type="int" />
+          <Property Name="CustomerPO" Type="int" />
+          <Property Name="ShipDate" Type="int" />
+          <Property Name="ShipDate2" Type="int" />
+          <Property Name="ShipMonth" Type="int" />
+          <Property Name="ShipQuarter" Type="int" />
+          <Property Name="CountryCode" Type="int" />
+          <Property Name="Country" Type="int" />
+          <Property Name="Region" Type="int" />
+          <Property Name="Model" Type="int" />
+          <Property Name="Start" Type="int" Nullable="false" />
+          <Property Name="SplitChar" Type="varchar" MaxLength="20" />
+          <Property Name="ModelName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ReportFile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="FK_LoginId" Type="int" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="250" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UpdateTime" Type="varchar" MaxLength="20" />
+          <Property Name="Success" Type="bit" />
+          <Property Name="ServerFileName" Type="nvarchar" MaxLength="250" />
+          <Property Name="Date" Type="varchar" MaxLength="20" />
+          <Property Name="CanDownload" Type="bit" />
+          <Property Name="IsDel" Type="bit" />
+          <Property Name="ServerSimpleFileName" Type="nvarchar" MaxLength="250" />
+          <Property Name="Flag" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SAP_PriceList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerId" Type="varchar" MaxLength="20" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="100" />
+          <Property Name="EndCustomerId" Type="varchar" MaxLength="20" />
+          <Property Name="EndCustomerName" Type="nvarchar" MaxLength="100" />
+          <Property Name="PartNumber" Type="varchar" MaxLength="50" />
+          <Property Name="Currency" Type="varchar" MaxLength="10" />
+          <Property Name="MOQ1" Type="int" />
+          <Property Name="Price1" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="MOQ2" Type="int" />
+          <Property Name="Price2" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="MOQ3" Type="int" />
+          <Property Name="Price3" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="MOQ4" Type="int" />
+          <Property Name="Price4" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="MOQ5" Type="int" />
+          <Property Name="Price5" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="MOQ6" Type="int" />
+          <Property Name="Price6" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="MOQ7" Type="int" />
+          <Property Name="Price7" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="MOQ8" Type="int" />
+          <Property Name="Price8" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="MOQ9" Type="int" />
+          <Property Name="Price9" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="MOQ10" Type="int" />
+          <Property Name="Price10" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Date" Type="varchar" MaxLength="20" />
+          <Property Name="Rate" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Per" Type="int" />
+          <Property Name="TaxType" Type="varchar" MaxLength="10" />
+          <Property Name="TaxRate" Type="int" />
+          <Property Name="EffectiveDate" Type="varchar" MaxLength="10" />
+          <Property Name="InsertSapPrice" Type="bit" />
+        </EntityType>
+        <EntityType Name="UploadLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FK_LoginId" Type="int" Nullable="false" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="200" />
+          <Property Name="UpdateTime" Type="varchar" MaxLength="20" />
+          <Property Name="TableName" Type="varchar" MaxLength="20" />
+          <Property Name="Success" Type="bit" />
+          <Property Name="ServerFileName" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Vote_ItemCatalog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClassName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Provider" Type="nvarchar" MaxLength="20" />
+          <Property Name="Number" Type="int" />
+        </EntityType>
+        <EntityType Name="Vote_Mapping">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FK_Vote_ItemCatalogId" Type="int" />
+          <Property Name="FK_LoginId" Type="int" />
+          <Property Name="ClassName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="EDIModelStoreContainer">
+          <EntitySet Name="Budget_Capex" EntityType="Self.Budget_Capex" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Budget_Cost" EntityType="Self.Budget_Cost" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Budget_CostTravelingMapping" EntityType="Self.Budget_CostTravelingMapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Budget_DepartmentReport" EntityType="Self.Budget_DepartmentReport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Budget_DeptExpense" EntityType="Self.Budget_DeptExpense" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Budget_DeptKPI" EntityType="Self.Budget_DeptKPI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Budget_FileVersionBudget" EntityType="Self.Budget_FileVersionBudget" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Budget_HeadCount" EntityType="Self.Budget_HeadCount" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Budget_HeadCountHR" EntityType="Self.Budget_HeadCountHR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Budget_LoginReviewCommonCost" EntityType="Self.Budget_LoginReviewCommonCost" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Budget_LoginReviewReport" EntityType="Self.Budget_LoginReviewReport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Budget_LoginUploadCommonCost" EntityType="Self.Budget_LoginUploadCommonCost" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Budget_LoginUploadReport" EntityType="Self.Budget_LoginUploadReport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Budget_Scrap" EntityType="Self.Budget_Scrap" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Budget_Traveling" EntityType="Self.Budget_Traveling" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ButtonLog" EntityType="Self.ButtonLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Edi_Customer" EntityType="Self.Edi_Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Edi_Pos" EntityType="Self.Edi_Pos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Edi_SalesHeader" EntityType="Self.Edi_SalesHeader" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Edi_SalesHeader_855" EntityType="Self.Edi_SalesHeader_855" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Edi_SalesItem" EntityType="Self.Edi_SalesItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Edi_SalesItem_855" EntityType="Self.Edi_SalesItem_855" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Edi_SalesPartner" EntityType="Self.Edi_SalesPartner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Edi_SalesSchedule" EntityType="Self.Edi_SalesSchedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Edi_SalesSchedule_855" EntityType="Self.Edi_SalesSchedule_855" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ErrorLog" EntityType="Self.ErrorLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemCatalog" EntityType="Self.ItemCatalog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pos" EntityType="Self.Pos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PosColumnMap" EntityType="Self.PosColumnMap" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PosData" EntityType="Self.PosData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PosOrderMapping" EntityType="Self.PosOrderMapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReportFile" EntityType="Self.ReportFile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SAP_PriceList" EntityType="Self.SAP_PriceList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UploadLog" EntityType="Self.UploadLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vote_ItemCatalog" EntityType="Self.Vote_ItemCatalog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vote_Mapping" EntityType="Self.Vote_Mapping" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EDIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="UploadLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FK_LoginId" Type="Int32" Nullable="false" />
+          <Property Name="FileName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateTime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TableName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Success" Type="Boolean" />
+          <Property Name="ServerFileName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Account" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IndexPage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Approve" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="EDIEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="UploadLog" EntityType="Self.UploadLog" />
+          <EntitySet Name="Login" EntityType="Self.Login" />
+          <EntitySet Name="PosColumnMap" EntityType="EDIModel.PosColumnMap" />
+          <EntitySet Name="PosData" EntityType="EDIModel.PosData" />
+          <EntitySet Name="PosOrderMapping" EntityType="EDIModel.PosOrderMapping" />
+          <EntitySet Name="ReportFile" EntityType="EDIModel.ReportFile" />
+          <EntitySet Name="Country" EntityType="EDIModel.Country" />
+          <EntitySet Name="Pos" EntityType="EDIModel.Pos" />
+          <EntitySet Name="ItemCatalog" EntityType="EDIModel.ItemCatalog" />
+          <EntitySet Name="Budget_Capex" EntityType="EDIModel.Budget_Capex" />
+          <EntitySet Name="Budget_HeadCount" EntityType="EDIModel.Budget_HeadCount" />
+          <EntitySet Name="Budget_Scrap" EntityType="EDIModel.Budget_Scrap" />
+          <EntitySet Name="Budget_DepartmentReport" EntityType="EDIModel.Budget_DepartmentReport" />
+          <EntitySet Name="Budget_FileVersionBudget" EntityType="EDIModel.Budget_FileVersionBudget" />
+          <EntitySet Name="Budget_DeptExpense" EntityType="EDIModel.Budget_DeptExpense" />
+          <EntitySet Name="Budget_DeptKPI" EntityType="EDIModel.Budget_DeptKPI" />
+          <EntitySet Name="Budget_Traveling" EntityType="EDIModel.Budget_Traveling" />
+          <EntitySet Name="Budget_Cost" EntityType="EDIModel.Budget_Cost" />
+          <EntitySet Name="Budget_CostTravelingMapping" EntityType="EDIModel.Budget_CostTravelingMapping" />
+          <EntitySet Name="Budget_LoginReviewCommonCost" EntityType="EDIModel.Budget_LoginReviewCommonCost" />
+          <EntitySet Name="Budget_LoginReviewReport" EntityType="EDIModel.Budget_LoginReviewReport" />
+          <EntitySet Name="Budget_LoginUploadCommonCost" EntityType="EDIModel.Budget_LoginUploadCommonCost" />
+          <EntitySet Name="Budget_LoginUploadReport" EntityType="EDIModel.Budget_LoginUploadReport" />
+          <EntitySet Name="Budget_HeadCountHR" EntityType="EDIModel.Budget_HeadCountHR" />
+          <EntitySet Name="SAP_PriceList" EntityType="EDIModel.SAP_PriceList" />
+          <EntitySet Name="ErrorLog" EntityType="EDIModel.ErrorLog" />
+          <EntitySet Name="Vote_ItemCatalog" EntityType="EDIModel.Vote_ItemCatalog" />
+          <EntitySet Name="Vote_Mapping" EntityType="EDIModel.Vote_Mapping" />
+          <EntitySet Name="ButtonLog" EntityType="EDIModel.ButtonLog" />
+          <EntitySet Name="Edi_Customer" EntityType="EDIModel.Edi_Customer" />
+          <EntitySet Name="Edi_SalesHeader" EntityType="EDIModel.Edi_SalesHeader" />
+          <EntitySet Name="Edi_SalesHeader_855" EntityType="EDIModel.Edi_SalesHeader_855" />
+          <EntitySet Name="Edi_SalesItem" EntityType="EDIModel.Edi_SalesItem" />
+          <EntitySet Name="Edi_SalesItem_855" EntityType="EDIModel.Edi_SalesItem_855" />
+          <EntitySet Name="Edi_SalesPartner" EntityType="EDIModel.Edi_SalesPartner" />
+          <EntitySet Name="Edi_SalesSchedule" EntityType="EDIModel.Edi_SalesSchedule" />
+          <EntitySet Name="Edi_SalesSchedule_855" EntityType="EDIModel.Edi_SalesSchedule_855" />
+          <EntitySet Name="Edi_Pos" EntityType="EDIModel.Edi_Pos" />
+        </EntityContainer>
+        <EntityType Name="PosColumnMap">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Year" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MonthYear" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Distributor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Customer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ISOCountryCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SalesArea" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SalesManager" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PostCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PartNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BaseCurrency" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Qty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TotalSalesBaseCurrency" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TotalSalesEUR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProductSeries" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Model" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModelName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PosData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Year" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="MonthYear" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Distributor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Customer" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ISOCountryCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SalesArea" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SalesManager" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PostCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PartNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BaseCurrency" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Qty" Type="Int32" />
+          <Property Name="TotalSalesBaseCurreny" Type="Decimal" Precision="36" Scale="18" />
+          <Property Name="TotalSalesEUR" Type="Decimal" Precision="36" Scale="18" />
+          <Property Name="ProductSeries" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FK_LoginId" Type="Int32" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="PosOrderMapping">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="Distributor" Type="Int32" />
+          <Property Name="Branch" Type="Int32" />
+          <Property Name="Address" Type="Int32" />
+          <Property Name="City" Type="Int32" />
+          <Property Name="State" Type="Int32" />
+          <Property Name="ZIP" Type="Int32" />
+          <Property Name="Series" Type="Int32" />
+          <Property Name="PartNo" Type="Int32" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="InvoiceNo" Type="Int32" />
+          <Property Name="InvoiceDate" Type="Int32" />
+          <Property Name="Cost" Type="Int32" />
+          <Property Name="Price" Type="Int32" />
+          <Property Name="ResellingExt" Type="Int32" />
+          <Property Name="ACCT" Type="Int32" />
+          <Property Name="CustomerName" Type="Int32" />
+          <Property Name="MarketCode" Type="Int32" />
+          <Property Name="Market" Type="Int32" />
+          <Property Name="SubSegmentCode" Type="Int32" />
+          <Property Name="SubSegment" Type="Int32" />
+          <Property Name="Remarks" Type="Int32" />
+          <Property Name="CustomerPO" Type="Int32" />
+          <Property Name="ShipDate" Type="Int32" />
+          <Property Name="ShipDate2" Type="Int32" />
+          <Property Name="ShipMonth" Type="Int32" />
+          <Property Name="ShipQuarter" Type="Int32" />
+          <Property Name="CountryCode" Type="Int32" />
+          <Property Name="Country" Type="Int32" />
+          <Property Name="Region" Type="Int32" />
+          <Property Name="Model" Type="Int32" />
+          <Property Name="Start" Type="Int32" Nullable="false" />
+          <Property Name="SplitChar" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ModelName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ReportFile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="FK_LoginId" Type="Int32" />
+          <Property Name="FileName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="UpdateTime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Success" Type="Boolean" />
+          <Property Name="ServerFileName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CanDownload" Type="Boolean" />
+          <Property Name="IsDel" Type="Boolean" />
+          <Property Name="ServerSimpleFileName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Flag" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EnglishName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Region" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Pos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Distributor" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Branch" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ZIP" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Series" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PartNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="InvoiceNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="InvoiceDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Cost" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ResellingExt" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ACCT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="MarketCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Market" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SubSegmentCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SubSegment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Remarks" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerPO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ShipDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ShipDate2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ShipMonth" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ShipQuarter" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CountryCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Region" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FK_LoginId" Type="Int32" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ItemCatalog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ItemId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IsDel" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Budget_Capex">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemId_AssetExp" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectRemark" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ItemId_AssetExpType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ItemId_Purpose" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SepLast" Type="Int32" />
+          <Property Name="OctLast" Type="Int32" />
+          <Property Name="NovLast" Type="Int32" />
+          <Property Name="DecLast" Type="Int32" />
+          <Property Name="Jan" Type="Int32" />
+          <Property Name="Feb" Type="Int32" />
+          <Property Name="Mar" Type="Int32" />
+          <Property Name="Apr" Type="Int32" />
+          <Property Name="May" Type="Int32" />
+          <Property Name="Jun" Type="Int32" />
+          <Property Name="Jul" Type="Int32" />
+          <Property Name="Aug" Type="Int32" />
+          <Property Name="Sep" Type="Int32" />
+          <Property Name="Oct" Type="Int32" />
+          <Property Name="Nov" Type="Int32" />
+          <Property Name="Dec" Type="Int32" />
+          <Property Name="Date" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DepartmentId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Version" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Factory" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="JulLast" Type="Int32" />
+          <Property Name="AugLast" Type="Int32" />
+          <Property Name="InternalOrder" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectAmount" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Budget_HeadCount">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Account" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SepLast" Type="Int32" />
+          <Property Name="OctLast" Type="Int32" />
+          <Property Name="NovLast" Type="Int32" />
+          <Property Name="DecLast" Type="Int32" />
+          <Property Name="Jan" Type="Int32" />
+          <Property Name="Feb" Type="Int32" />
+          <Property Name="Mar" Type="Int32" />
+          <Property Name="Apr" Type="Int32" />
+          <Property Name="May" Type="Int32" />
+          <Property Name="Jun" Type="Int32" />
+          <Property Name="Jul" Type="Int32" />
+          <Property Name="Aug" Type="Int32" />
+          <Property Name="Sep" Type="Int32" />
+          <Property Name="Oct" Type="Int32" />
+          <Property Name="Nov" Type="Int32" />
+          <Property Name="Dec" Type="Int32" />
+          <Property Name="Date" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DepartmentId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Version" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="JulLast" Type="Int32" />
+          <Property Name="AugLast" Type="Int32" />
+          <Property Name="Factory" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PartTime" Type="Boolean" />
+          <Property Name="CurrentHC" Type="Boolean" />
+          <Property Name="ItemId_Reason" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Budget_Scrap">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemId_ScrapType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PartNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Reason" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Month" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="PurchasePrice" Type="Int32" />
+          <Property Name="BookValue" Type="Int32" />
+          <Property Name="Date" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DepartmentId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Version" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Factory" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Budget_DepartmentReport">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmentId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DepartmentName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Factory" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DeptExpense" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Scrap" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Travelling" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="KPI" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Headcount" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Capex" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Budget_FileVersionBudget">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Account" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ItemId_BudgetName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Date" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Version" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Approve" Type="Boolean" />
+          <Property Name="DepartmentId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Factory" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="UploadLogId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Budget_DeptExpense">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="YTD" Type="Int32" />
+          <Property Name="Jan" Type="Int32" />
+          <Property Name="Feb" Type="Int32" />
+          <Property Name="Mar" Type="Int32" />
+          <Property Name="Apr" Type="Int32" />
+          <Property Name="May" Type="Int32" />
+          <Property Name="Jun" Type="Int32" />
+          <Property Name="Jul" Type="Int32" />
+          <Property Name="Aug" Type="Int32" />
+          <Property Name="Sep" Type="Int32" />
+          <Property Name="Oct" Type="Int32" />
+          <Property Name="Nov" Type="Int32" />
+          <Property Name="Dec" Type="Int32" />
+          <Property Name="Date" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DepartmentId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Version" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Factory" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CostCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ItemId_CostCommon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Budget_DeptKPI">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GoalName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="PIC_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastYear" Type="String" FixedLength="false" Unicode="true" MaxLength="200" />
+          <Property Name="YTD" Type="String" FixedLength="false" Unicode="true" MaxLength="200" />
+          <Property Name="Jan" Type="String" FixedLength="false" Unicode="true" MaxLength="200" />
+          <Property Name="Feb" Type="String" FixedLength="false" Unicode="true" MaxLength="200" />
+          <Property Name="Mar" Type="String" FixedLength="false" Unicode="true" MaxLength="200" />
+          <Property Name="Apr" Type="String" FixedLength="false" Unicode="true" MaxLength="200" />
+          <Property Name="May" Type="String" FixedLength="false" Unicode="true" MaxLength="200" />
+          <Property Name="Jun" Type="String" FixedLength="false" Unicode="true" MaxLength="200" />
+          <Property Name="Jul" Type="String" FixedLength="false" Unicode="true" MaxLength="200" />
+          <Property Name="Aug" Type="String" FixedLength="false" Unicode="true" MaxLength="200" />
+          <Property Name="Sep" Type="String" FixedLength="false" Unicode="true" MaxLength="200" />
+          <Property Name="Oct" Type="String" FixedLength="false" Unicode="true" MaxLength="200" />
+          <Property Name="Nov" Type="String" FixedLength="false" Unicode="true" MaxLength="200" />
+          <Property Name="Dec" Type="String" FixedLength="false" Unicode="true" MaxLength="200" />
+          <Property Name="Date" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DepartmentId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Version" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Factory" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Budget_Traveling">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Days" Type="Int32" />
+          <Property Name="ItemId_TravelingPurpose" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ItemId_TravelingType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Jan" Type="Int32" />
+          <Property Name="Feb" Type="Int32" />
+          <Property Name="Mar" Type="Int32" />
+          <Property Name="Apr" Type="Int32" />
+          <Property Name="May" Type="Int32" />
+          <Property Name="Jun" Type="Int32" />
+          <Property Name="Jul" Type="Int32" />
+          <Property Name="Aug" Type="Int32" />
+          <Property Name="Sep" Type="Int32" />
+          <Property Name="Oct" Type="Int32" />
+          <Property Name="Nov" Type="Int32" />
+          <Property Name="Dec" Type="Int32" />
+          <Property Name="Date" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DepartmentId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Version" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AltwName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Factory" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Budget_Cost">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CostCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CostName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDel" Type="Boolean" />
+          <Property Name="IsTraveling" Type="Boolean" />
+          <Property Name="ItemId_CostCommon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Budget_CostTravelingMapping">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemId_TravelingType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CostCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Budget_LoginReviewCommonCost">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Account" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Factory" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ItemId_CostCommon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Budget_LoginReviewReport">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Account" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DepartmentId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Factory" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Budget_LoginUploadCommonCost">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Account" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Factory" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ItemId_CostCommon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Budget_LoginUploadReport">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Account" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DepartmentId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Factory" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Budget_HeadCountHR">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Account" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ItemId_HR" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ItemId_DirectType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IsDel" Type="Boolean" />
+          <Property Name="ItemId_JobFunction" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ItemId_Title" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AltwName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SAP_PriceList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EndCustomerId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="EndCustomerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PartNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Currency" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="MOQ1" Type="Int32" />
+          <Property Name="Price1" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MOQ2" Type="Int32" />
+          <Property Name="Price2" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MOQ3" Type="Int32" />
+          <Property Name="Price3" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MOQ4" Type="Int32" />
+          <Property Name="Price4" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MOQ5" Type="Int32" />
+          <Property Name="Price5" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MOQ6" Type="Int32" />
+          <Property Name="Price6" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MOQ7" Type="Int32" />
+          <Property Name="Price7" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MOQ8" Type="Int32" />
+          <Property Name="Price8" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MOQ9" Type="Int32" />
+          <Property Name="Price9" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MOQ10" Type="Int32" />
+          <Property Name="Price10" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Date" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Rate" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Per" Type="Int32" />
+          <Property Name="TaxType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TaxRate" Type="Int32" />
+          <Property Name="EffectiveDate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="InsertSapPrice" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="ErrorLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Parameter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Module" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Class" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateTime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Vote_ItemCatalog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Provider" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Number" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Vote_Mapping">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FK_Vote_ItemCatalogId" Type="Int32" />
+          <Property Name="FK_LoginId" Type="Int32" />
+          <Property Name="ClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ButtonLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FK_LoginId" Type="Int32" />
+          <Property Name="Button" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ClickTime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Page" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Edi_Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SapCustomerId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RSSBus_PortId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mode" Type="Boolean" />
+          <Property Name="SalesEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DOC_TYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SALES_ORG" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DISTR_CHAN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DIVISION" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ReceiverId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PartNumberIndex" Type="Int32" />
+          <Property Name="EdiType" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Edi_SalesHeader">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DOC_TYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SALES_ORG" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DISTR_CHAN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DIVISION" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PURCH_NO_C" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PURCH_DATE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Is_Proc" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OrderNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateTime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreateBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SapCustomerId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Edi_SalesHeader_855">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PURCH_NO_C" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PURCH_DATE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateTime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OrderNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Edi_SalesItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ITM_NUMBER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MATERIAL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CUST_MAT35" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerItemNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerUnit" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerPrice" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerUnitOfPrice" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateTime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Edi_SalesItem_855">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="OrderNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MATERIAL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CUST_MAT35" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ITM_NUMBER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TARGET_QTY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerUnit" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerItemNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerUnitOfPrice" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateTime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Edi_SalesPartner">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PARTN_ROLE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PARTN_NUMB" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="STREET" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CITY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="REGION" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="POSTL_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="COUNTRY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TELEPHONE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateTime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Edi_SalesSchedule">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="REQ_QTY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ITM_NUMBER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SCHED_LINE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="REQ_DATE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateTime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Edi_SalesSchedule_855">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="OrderNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ITM_NUMBER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerUnit" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateTime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateTimeCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="REQ_DATE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="REQ_QTY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Edi_Pos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Distributor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ZIP" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Series" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PartNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Cost" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ResellingExt" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ACCT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MarketCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Market" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SubSegmentCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SubSegment" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Remarks" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ShipDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ShipDate2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ShipMonth" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ShipQuarter" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CountryCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Region" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FK_LoginId" Type="Int32" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CorporateMarket" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="YY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EDIModelStoreContainer" CdmEntityContainer="EDIEntities">
+          <EntitySetMapping Name="UploadLog">
+            <EntityTypeMapping TypeName="EDIModel.UploadLog">
+              <MappingFragment StoreEntitySet="UploadLog">
+                <ScalarProperty Name="ServerFileName" ColumnName="ServerFileName" />
+                <ScalarProperty Name="Success" ColumnName="Success" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FK_LoginId" ColumnName="FK_LoginId" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="TableName" ColumnName="TableName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Login">
+            <EntityTypeMapping TypeName="EDIModel.Login">
+              <MappingFragment StoreEntitySet="Login">
+                <ScalarProperty Name="Approve" ColumnName="Approve" />
+                <ScalarProperty Name="IndexPage" ColumnName="IndexPage" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PosColumnMap">
+            <EntityTypeMapping TypeName="EDIModel.PosColumnMap">
+              <MappingFragment StoreEntitySet="PosColumnMap">
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductSeries" ColumnName="ProductSeries" />
+                <ScalarProperty Name="TotalSalesEUR" ColumnName="TotalSalesEUR" />
+                <ScalarProperty Name="TotalSalesBaseCurrency" ColumnName="TotalSalesBaseCurrency" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="BaseCurrency" ColumnName="BaseCurrency" />
+                <ScalarProperty Name="PartNo" ColumnName="PartNo" />
+                <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="SalesManager" ColumnName="SalesManager" />
+                <ScalarProperty Name="SalesArea" ColumnName="SalesArea" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="ISOCountryCode" ColumnName="ISOCountryCode" />
+                <ScalarProperty Name="Customer" ColumnName="Customer" />
+                <ScalarProperty Name="Distributor" ColumnName="Distributor" />
+                <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+				 <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PosData">
+            <EntityTypeMapping TypeName="EDIModel.PosData">
+              <MappingFragment StoreEntitySet="PosData">
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="FK_LoginId" ColumnName="FK_LoginId" />
+                <ScalarProperty Name="ProductSeries" ColumnName="ProductSeries" />
+                <ScalarProperty Name="TotalSalesEUR" ColumnName="TotalSalesEUR" />
+                <ScalarProperty Name="TotalSalesBaseCurreny" ColumnName="TotalSalesBaseCurreny" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="BaseCurrency" ColumnName="BaseCurrency" />
+                <ScalarProperty Name="PartNo" ColumnName="PartNo" />
+                <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="SalesManager" ColumnName="SalesManager" />
+                <ScalarProperty Name="SalesArea" ColumnName="SalesArea" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="ISOCountryCode" ColumnName="ISOCountryCode" />
+                <ScalarProperty Name="Customer" ColumnName="Customer" />
+                <ScalarProperty Name="Distributor" ColumnName="Distributor" />
+                <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PosOrderMapping">
+            <EntityTypeMapping TypeName="EDIModel.PosOrderMapping">
+              <MappingFragment StoreEntitySet="PosOrderMapping">
+                <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+                <ScalarProperty Name="SplitChar" ColumnName="SplitChar" />
+                <ScalarProperty Name="Start" ColumnName="Start" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="ShipQuarter" ColumnName="ShipQuarter" />
+                <ScalarProperty Name="ShipMonth" ColumnName="ShipMonth" />
+                <ScalarProperty Name="ShipDate2" ColumnName="ShipDate2" />
+                <ScalarProperty Name="ShipDate" ColumnName="ShipDate" />
+                <ScalarProperty Name="CustomerPO" ColumnName="CustomerPO" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="SubSegment" ColumnName="SubSegment" />
+                <ScalarProperty Name="SubSegmentCode" ColumnName="SubSegmentCode" />
+                <ScalarProperty Name="Market" ColumnName="Market" />
+                <ScalarProperty Name="MarketCode" ColumnName="MarketCode" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="ACCT" ColumnName="ACCT" />
+                <ScalarProperty Name="ResellingExt" ColumnName="ResellingExt" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="PartNo" ColumnName="PartNo" />
+                <ScalarProperty Name="Series" ColumnName="Series" />
+                <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Branch" ColumnName="Branch" />
+                <ScalarProperty Name="Distributor" ColumnName="Distributor" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReportFile">
+            <EntityTypeMapping TypeName="EDIModel.ReportFile">
+              <MappingFragment StoreEntitySet="ReportFile">
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="ServerSimpleFileName" ColumnName="ServerSimpleFileName" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="CanDownload" ColumnName="CanDownload" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ServerFileName" ColumnName="ServerFileName" />
+                <ScalarProperty Name="Success" ColumnName="Success" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="FK_LoginId" ColumnName="FK_LoginId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Country">
+            <EntityTypeMapping TypeName="EDIModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="EnglishName" ColumnName="EnglishName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pos">
+            <EntityTypeMapping TypeName="EDIModel.Pos">
+              <MappingFragment StoreEntitySet="Pos">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="FK_LoginId" ColumnName="FK_LoginId" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="ShipQuarter" ColumnName="ShipQuarter" />
+                <ScalarProperty Name="ShipMonth" ColumnName="ShipMonth" />
+                <ScalarProperty Name="ShipDate2" ColumnName="ShipDate2" />
+                <ScalarProperty Name="ShipDate" ColumnName="ShipDate" />
+                <ScalarProperty Name="CustomerPO" ColumnName="CustomerPO" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="SubSegment" ColumnName="SubSegment" />
+                <ScalarProperty Name="SubSegmentCode" ColumnName="SubSegmentCode" />
+                <ScalarProperty Name="Market" ColumnName="Market" />
+                <ScalarProperty Name="MarketCode" ColumnName="MarketCode" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="ACCT" ColumnName="ACCT" />
+                <ScalarProperty Name="ResellingExt" ColumnName="ResellingExt" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="PartNo" ColumnName="PartNo" />
+                <ScalarProperty Name="Series" ColumnName="Series" />
+                <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Branch" ColumnName="Branch" />
+                <ScalarProperty Name="Distributor" ColumnName="Distributor" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemCatalog">
+            <EntityTypeMapping TypeName="EDIModel.ItemCatalog">
+              <MappingFragment StoreEntitySet="ItemCatalog">
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Budget_Capex">
+            <EntityTypeMapping TypeName="EDIModel.Budget_Capex">
+              <MappingFragment StoreEntitySet="Budget_Capex">
+                <ScalarProperty Name="ProjectAmount" ColumnName="ProjectAmount" />
+                <ScalarProperty Name="InternalOrder" ColumnName="InternalOrder" />
+                <ScalarProperty Name="AugLast" ColumnName="AugLast" />
+                <ScalarProperty Name="JulLast" ColumnName="JulLast" />
+                <ScalarProperty Name="Factory" ColumnName="Factory" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Dec" ColumnName="Dec" />
+                <ScalarProperty Name="Nov" ColumnName="Nov" />
+                <ScalarProperty Name="Oct" ColumnName="Oct" />
+                <ScalarProperty Name="Sep" ColumnName="Sep" />
+                <ScalarProperty Name="Aug" ColumnName="Aug" />
+                <ScalarProperty Name="Jul" ColumnName="Jul" />
+                <ScalarProperty Name="Jun" ColumnName="Jun" />
+                <ScalarProperty Name="May" ColumnName="May" />
+                <ScalarProperty Name="Apr" ColumnName="Apr" />
+                <ScalarProperty Name="Mar" ColumnName="Mar" />
+                <ScalarProperty Name="Feb" ColumnName="Feb" />
+                <ScalarProperty Name="Jan" ColumnName="Jan" />
+                <ScalarProperty Name="DecLast" ColumnName="DecLast" />
+                <ScalarProperty Name="NovLast" ColumnName="NovLast" />
+                <ScalarProperty Name="OctLast" ColumnName="OctLast" />
+                <ScalarProperty Name="SepLast" ColumnName="SepLast" />
+                <ScalarProperty Name="ItemId_Purpose" ColumnName="ItemId_Purpose" />
+                <ScalarProperty Name="ItemId_AssetExpType" ColumnName="ItemId_AssetExpType" />
+                <ScalarProperty Name="ProjectRemark" ColumnName="ProjectRemark" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="ItemId_AssetExp" ColumnName="ItemId_AssetExp" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Budget_HeadCount">
+            <EntityTypeMapping TypeName="EDIModel.Budget_HeadCount">
+              <MappingFragment StoreEntitySet="Budget_HeadCount">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="ItemId_Reason" ColumnName="ItemId_Reason" />
+                <ScalarProperty Name="CurrentHC" ColumnName="CurrentHC" />
+                <ScalarProperty Name="PartTime" ColumnName="PartTime" />
+                <ScalarProperty Name="Factory" ColumnName="Factory" />
+                <ScalarProperty Name="AugLast" ColumnName="AugLast" />
+                <ScalarProperty Name="JulLast" ColumnName="JulLast" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Dec" ColumnName="Dec" />
+                <ScalarProperty Name="Nov" ColumnName="Nov" />
+                <ScalarProperty Name="Oct" ColumnName="Oct" />
+                <ScalarProperty Name="Sep" ColumnName="Sep" />
+                <ScalarProperty Name="Aug" ColumnName="Aug" />
+                <ScalarProperty Name="Jul" ColumnName="Jul" />
+                <ScalarProperty Name="Jun" ColumnName="Jun" />
+                <ScalarProperty Name="May" ColumnName="May" />
+                <ScalarProperty Name="Apr" ColumnName="Apr" />
+                <ScalarProperty Name="Mar" ColumnName="Mar" />
+                <ScalarProperty Name="Feb" ColumnName="Feb" />
+                <ScalarProperty Name="Jan" ColumnName="Jan" />
+                <ScalarProperty Name="DecLast" ColumnName="DecLast" />
+                <ScalarProperty Name="NovLast" ColumnName="NovLast" />
+                <ScalarProperty Name="OctLast" ColumnName="OctLast" />
+                <ScalarProperty Name="SepLast" ColumnName="SepLast" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Budget_Scrap">
+            <EntityTypeMapping TypeName="EDIModel.Budget_Scrap">
+              <MappingFragment StoreEntitySet="Budget_Scrap">
+                <ScalarProperty Name="Factory" ColumnName="Factory" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="BookValue" ColumnName="BookValue" />
+                <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+                <ScalarProperty Name="ItemId_ScrapType" ColumnName="ItemId_ScrapType" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Budget_DepartmentReport">
+            <EntityTypeMapping TypeName="EDIModel.Budget_DepartmentReport">
+              <MappingFragment StoreEntitySet="Budget_DepartmentReport">
+                <ScalarProperty Name="Capex" ColumnName="Capex" />
+                <ScalarProperty Name="Headcount" ColumnName="Headcount" />
+                <ScalarProperty Name="KPI" ColumnName="KPI" />
+                <ScalarProperty Name="Travelling" ColumnName="Travelling" />
+                <ScalarProperty Name="Scrap" ColumnName="Scrap" />
+                <ScalarProperty Name="DeptExpense" ColumnName="DeptExpense" />
+                <ScalarProperty Name="Factory" ColumnName="Factory" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Budget_FileVersionBudget">
+            <EntityTypeMapping TypeName="EDIModel.Budget_FileVersionBudget">
+              <MappingFragment StoreEntitySet="Budget_FileVersionBudget">
+                <ScalarProperty Name="UploadLogId" ColumnName="UploadLogId" />
+                <ScalarProperty Name="Factory" ColumnName="Factory" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="Approve" ColumnName="Approve" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ItemId_BudgetName" ColumnName="ItemId_BudgetName" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Budget_DeptExpense">
+            <EntityTypeMapping TypeName="EDIModel.Budget_DeptExpense">
+              <MappingFragment StoreEntitySet="Budget_DeptExpense">
+                <ScalarProperty Name="ItemId_CostCommon" ColumnName="ItemId_CostCommon" />
+                <ScalarProperty Name="CostCode" ColumnName="CostCode" />
+                <ScalarProperty Name="Factory" ColumnName="Factory" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Dec" ColumnName="Dec" />
+                <ScalarProperty Name="Nov" ColumnName="Nov" />
+                <ScalarProperty Name="Oct" ColumnName="Oct" />
+                <ScalarProperty Name="Sep" ColumnName="Sep" />
+                <ScalarProperty Name="Aug" ColumnName="Aug" />
+                <ScalarProperty Name="Jul" ColumnName="Jul" />
+                <ScalarProperty Name="Jun" ColumnName="Jun" />
+                <ScalarProperty Name="May" ColumnName="May" />
+                <ScalarProperty Name="Apr" ColumnName="Apr" />
+                <ScalarProperty Name="Mar" ColumnName="Mar" />
+                <ScalarProperty Name="Feb" ColumnName="Feb" />
+                <ScalarProperty Name="Jan" ColumnName="Jan" />
+                <ScalarProperty Name="YTD" ColumnName="YTD" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Budget_DeptKPI">
+            <EntityTypeMapping TypeName="EDIModel.Budget_DeptKPI">
+              <MappingFragment StoreEntitySet="Budget_DeptKPI">
+                <ScalarProperty Name="Factory" ColumnName="Factory" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Dec" ColumnName="Dec" />
+                <ScalarProperty Name="Nov" ColumnName="Nov" />
+                <ScalarProperty Name="Oct" ColumnName="Oct" />
+                <ScalarProperty Name="Sep" ColumnName="Sep" />
+                <ScalarProperty Name="Aug" ColumnName="Aug" />
+                <ScalarProperty Name="Jul" ColumnName="Jul" />
+                <ScalarProperty Name="Jun" ColumnName="Jun" />
+                <ScalarProperty Name="May" ColumnName="May" />
+                <ScalarProperty Name="Apr" ColumnName="Apr" />
+                <ScalarProperty Name="Mar" ColumnName="Mar" />
+                <ScalarProperty Name="Feb" ColumnName="Feb" />
+                <ScalarProperty Name="Jan" ColumnName="Jan" />
+                <ScalarProperty Name="YTD" ColumnName="YTD" />
+                <ScalarProperty Name="LastYear" ColumnName="LastYear" />
+                <ScalarProperty Name="PIC_Name" ColumnName="PIC_Name" />
+                <ScalarProperty Name="GoalName" ColumnName="GoalName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Budget_Traveling">
+            <EntityTypeMapping TypeName="EDIModel.Budget_Traveling">
+              <MappingFragment StoreEntitySet="Budget_Traveling">
+                <ScalarProperty Name="Factory" ColumnName="Factory" />
+                <ScalarProperty Name="AltwName" ColumnName="AltwName" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Dec" ColumnName="Dec" />
+                <ScalarProperty Name="Nov" ColumnName="Nov" />
+                <ScalarProperty Name="Oct" ColumnName="Oct" />
+                <ScalarProperty Name="Sep" ColumnName="Sep" />
+                <ScalarProperty Name="Aug" ColumnName="Aug" />
+                <ScalarProperty Name="Jul" ColumnName="Jul" />
+                <ScalarProperty Name="Jun" ColumnName="Jun" />
+                <ScalarProperty Name="May" ColumnName="May" />
+                <ScalarProperty Name="Apr" ColumnName="Apr" />
+                <ScalarProperty Name="Mar" ColumnName="Mar" />
+                <ScalarProperty Name="Feb" ColumnName="Feb" />
+                <ScalarProperty Name="Jan" ColumnName="Jan" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="ItemId_TravelingType" ColumnName="ItemId_TravelingType" />
+                <ScalarProperty Name="ItemId_TravelingPurpose" ColumnName="ItemId_TravelingPurpose" />
+                <ScalarProperty Name="Days" ColumnName="Days" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Budget_Cost">
+            <EntityTypeMapping TypeName="EDIModel.Budget_Cost">
+              <MappingFragment StoreEntitySet="Budget_Cost">
+                <ScalarProperty Name="ItemId_CostCommon" ColumnName="ItemId_CostCommon" />
+                <ScalarProperty Name="IsTraveling" ColumnName="IsTraveling" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="CostName" ColumnName="CostName" />
+                <ScalarProperty Name="CostCode" ColumnName="CostCode" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Budget_CostTravelingMapping">
+            <EntityTypeMapping TypeName="EDIModel.Budget_CostTravelingMapping">
+              <MappingFragment StoreEntitySet="Budget_CostTravelingMapping">
+                <ScalarProperty Name="CostCode" ColumnName="CostCode" />
+                <ScalarProperty Name="ItemId_TravelingType" ColumnName="ItemId_TravelingType" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Budget_LoginReviewCommonCost">
+            <EntityTypeMapping TypeName="EDIModel.Budget_LoginReviewCommonCost">
+              <MappingFragment StoreEntitySet="Budget_LoginReviewCommonCost">
+                <ScalarProperty Name="ItemId_CostCommon" ColumnName="ItemId_CostCommon" />
+                <ScalarProperty Name="Factory" ColumnName="Factory" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Budget_LoginReviewReport">
+            <EntityTypeMapping TypeName="EDIModel.Budget_LoginReviewReport">
+              <MappingFragment StoreEntitySet="Budget_LoginReviewReport">
+                <ScalarProperty Name="Factory" ColumnName="Factory" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Budget_LoginUploadCommonCost">
+            <EntityTypeMapping TypeName="EDIModel.Budget_LoginUploadCommonCost">
+              <MappingFragment StoreEntitySet="Budget_LoginUploadCommonCost">
+                <ScalarProperty Name="ItemId_CostCommon" ColumnName="ItemId_CostCommon" />
+                <ScalarProperty Name="Factory" ColumnName="Factory" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Budget_LoginUploadReport">
+            <EntityTypeMapping TypeName="EDIModel.Budget_LoginUploadReport">
+              <MappingFragment StoreEntitySet="Budget_LoginUploadReport">
+                <ScalarProperty Name="Factory" ColumnName="Factory" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Budget_HeadCountHR">
+            <EntityTypeMapping TypeName="EDIModel.Budget_HeadCountHR">
+              <MappingFragment StoreEntitySet="Budget_HeadCountHR">
+                <ScalarProperty Name="AltwName" ColumnName="AltwName" />
+                <ScalarProperty Name="ItemId_Title" ColumnName="ItemId_Title" />
+                <ScalarProperty Name="ItemId_JobFunction" ColumnName="ItemId_JobFunction" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="ItemId_DirectType" ColumnName="ItemId_DirectType" />
+                <ScalarProperty Name="ItemId_HR" ColumnName="ItemId_HR" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SAP_PriceList">
+            <EntityTypeMapping TypeName="EDIModel.SAP_PriceList">
+              <MappingFragment StoreEntitySet="SAP_PriceList">
+                <ScalarProperty Name="InsertSapPrice" ColumnName="InsertSapPrice" />
+                <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+                <ScalarProperty Name="TaxRate" ColumnName="TaxRate" />
+                <ScalarProperty Name="TaxType" ColumnName="TaxType" />
+                <ScalarProperty Name="Per" ColumnName="Per" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Price10" ColumnName="Price10" />
+                <ScalarProperty Name="MOQ10" ColumnName="MOQ10" />
+                <ScalarProperty Name="Price9" ColumnName="Price9" />
+                <ScalarProperty Name="MOQ9" ColumnName="MOQ9" />
+                <ScalarProperty Name="Price8" ColumnName="Price8" />
+                <ScalarProperty Name="MOQ8" ColumnName="MOQ8" />
+                <ScalarProperty Name="Price7" ColumnName="Price7" />
+                <ScalarProperty Name="MOQ7" ColumnName="MOQ7" />
+                <ScalarProperty Name="Price6" ColumnName="Price6" />
+                <ScalarProperty Name="MOQ6" ColumnName="MOQ6" />
+                <ScalarProperty Name="Price5" ColumnName="Price5" />
+                <ScalarProperty Name="MOQ5" ColumnName="MOQ5" />
+                <ScalarProperty Name="Price4" ColumnName="Price4" />
+                <ScalarProperty Name="MOQ4" ColumnName="MOQ4" />
+                <ScalarProperty Name="Price3" ColumnName="Price3" />
+                <ScalarProperty Name="MOQ3" ColumnName="MOQ3" />
+                <ScalarProperty Name="Price2" ColumnName="Price2" />
+                <ScalarProperty Name="MOQ2" ColumnName="MOQ2" />
+                <ScalarProperty Name="Price1" ColumnName="Price1" />
+                <ScalarProperty Name="MOQ1" ColumnName="MOQ1" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+                <ScalarProperty Name="EndCustomerName" ColumnName="EndCustomerName" />
+                <ScalarProperty Name="EndCustomerId" ColumnName="EndCustomerId" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ErrorLog">
+            <EntityTypeMapping TypeName="EDIModel.ErrorLog">
+              <MappingFragment StoreEntitySet="ErrorLog">
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="Module" ColumnName="Module" />
+                <ScalarProperty Name="Parameter" ColumnName="Parameter" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vote_ItemCatalog">
+            <EntityTypeMapping TypeName="EDIModel.Vote_ItemCatalog">
+              <MappingFragment StoreEntitySet="Vote_ItemCatalog">
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Provider" ColumnName="Provider" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vote_Mapping">
+            <EntityTypeMapping TypeName="EDIModel.Vote_Mapping">
+              <MappingFragment StoreEntitySet="Vote_Mapping">
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="FK_LoginId" ColumnName="FK_LoginId" />
+                <ScalarProperty Name="FK_Vote_ItemCatalogId" ColumnName="FK_Vote_ItemCatalogId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ButtonLog">
+            <EntityTypeMapping TypeName="EDIModel.ButtonLog">
+              <MappingFragment StoreEntitySet="ButtonLog">
+                <ScalarProperty Name="Page" ColumnName="Page" />
+                <ScalarProperty Name="ClickTime" ColumnName="ClickTime" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Button" ColumnName="Button" />
+                <ScalarProperty Name="FK_LoginId" ColumnName="FK_LoginId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Edi_Customer">
+            <EntityTypeMapping TypeName="EDIModel.Edi_Customer">
+              <MappingFragment StoreEntitySet="Edi_Customer">
+                <ScalarProperty Name="EdiType" ColumnName="EdiType" />
+                <ScalarProperty Name="PartNumberIndex" ColumnName="PartNumberIndex" />
+                <ScalarProperty Name="ReceiverId" ColumnName="ReceiverId" />
+                <ScalarProperty Name="DIVISION" ColumnName="DIVISION" />
+                <ScalarProperty Name="DISTR_CHAN" ColumnName="DISTR_CHAN" />
+                <ScalarProperty Name="SALES_ORG" ColumnName="SALES_ORG" />
+                <ScalarProperty Name="DOC_TYPE" ColumnName="DOC_TYPE" />
+                <ScalarProperty Name="SalesEmail" ColumnName="SalesEmail" />
+                <ScalarProperty Name="Mode" ColumnName="Mode" />
+                <ScalarProperty Name="RSSBus_PortId" ColumnName="RSSBus_PortId" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="SapCustomerId" ColumnName="SapCustomerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Edi_SalesHeader">
+            <EntityTypeMapping TypeName="EDIModel.Edi_SalesHeader">
+              <MappingFragment StoreEntitySet="Edi_SalesHeader">
+                <ScalarProperty Name="SapCustomerId" ColumnName="SapCustomerId" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="Is_Proc" ColumnName="Is_Proc" />
+                <ScalarProperty Name="PURCH_DATE" ColumnName="PURCH_DATE" />
+                <ScalarProperty Name="PURCH_NO_C" ColumnName="PURCH_NO_C" />
+                <ScalarProperty Name="DIVISION" ColumnName="DIVISION" />
+                <ScalarProperty Name="DISTR_CHAN" ColumnName="DISTR_CHAN" />
+                <ScalarProperty Name="SALES_ORG" ColumnName="SALES_ORG" />
+                <ScalarProperty Name="DOC_TYPE" ColumnName="DOC_TYPE" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Edi_SalesHeader_855">
+            <EntityTypeMapping TypeName="EDIModel.Edi_SalesHeader_855">
+              <MappingFragment StoreEntitySet="Edi_SalesHeader_855">
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="PURCH_DATE" ColumnName="PURCH_DATE" />
+                <ScalarProperty Name="PURCH_NO_C" ColumnName="PURCH_NO_C" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Edi_SalesItem">
+            <EntityTypeMapping TypeName="EDIModel.Edi_SalesItem">
+              <MappingFragment StoreEntitySet="Edi_SalesItem">
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="CustomerUnitOfPrice" ColumnName="CustomerUnitOfPrice" />
+                <ScalarProperty Name="CustomerPrice" ColumnName="CustomerPrice" />
+                <ScalarProperty Name="CustomerUnit" ColumnName="CustomerUnit" />
+                <ScalarProperty Name="CustomerItemNumber" ColumnName="CustomerItemNumber" />
+                <ScalarProperty Name="CUST_MAT35" ColumnName="CUST_MAT35" />
+                <ScalarProperty Name="MATERIAL" ColumnName="MATERIAL" />
+                <ScalarProperty Name="ITM_NUMBER" ColumnName="ITM_NUMBER" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Edi_SalesItem_855">
+            <EntityTypeMapping TypeName="EDIModel.Edi_SalesItem_855">
+              <MappingFragment StoreEntitySet="Edi_SalesItem_855">
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="CustomerUnitOfPrice" ColumnName="CustomerUnitOfPrice" />
+                <ScalarProperty Name="CustomerItemNumber" ColumnName="CustomerItemNumber" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="CustomerUnit" ColumnName="CustomerUnit" />
+                <ScalarProperty Name="TARGET_QTY" ColumnName="TARGET_QTY" />
+                <ScalarProperty Name="ITM_NUMBER" ColumnName="ITM_NUMBER" />
+                <ScalarProperty Name="CUST_MAT35" ColumnName="CUST_MAT35" />
+                <ScalarProperty Name="MATERIAL" ColumnName="MATERIAL" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Edi_SalesPartner">
+            <EntityTypeMapping TypeName="EDIModel.Edi_SalesPartner">
+              <MappingFragment StoreEntitySet="Edi_SalesPartner">
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="TELEPHONE" ColumnName="TELEPHONE" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="POSTL_CODE" ColumnName="POSTL_CODE" />
+                <ScalarProperty Name="REGION" ColumnName="REGION" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="STREET" ColumnName="STREET" />
+                <ScalarProperty Name="PARTN_NUMB" ColumnName="PARTN_NUMB" />
+                <ScalarProperty Name="PARTN_ROLE" ColumnName="PARTN_ROLE" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Edi_SalesSchedule">
+            <EntityTypeMapping TypeName="EDIModel.Edi_SalesSchedule">
+              <MappingFragment StoreEntitySet="Edi_SalesSchedule">
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="REQ_DATE" ColumnName="REQ_DATE" />
+                <ScalarProperty Name="SCHED_LINE" ColumnName="SCHED_LINE" />
+                <ScalarProperty Name="ITM_NUMBER" ColumnName="ITM_NUMBER" />
+                <ScalarProperty Name="REQ_QTY" ColumnName="REQ_QTY" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Edi_SalesSchedule_855">
+            <EntityTypeMapping TypeName="EDIModel.Edi_SalesSchedule_855">
+              <MappingFragment StoreEntitySet="Edi_SalesSchedule_855">
+                <ScalarProperty Name="REQ_QTY" ColumnName="REQ_QTY" />
+                <ScalarProperty Name="REQ_DATE" ColumnName="REQ_DATE" />
+                <ScalarProperty Name="DateTimeCode" ColumnName="DateTimeCode" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CustomerUnit" ColumnName="CustomerUnit" />
+                <ScalarProperty Name="ITM_NUMBER" ColumnName="ITM_NUMBER" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Edi_Pos">
+            <EntityTypeMapping TypeName="EDIModel.Edi_Pos">
+              <MappingFragment StoreEntitySet="Edi_Pos">
+                <ScalarProperty Name="YY" ColumnName="YY" />
+                <ScalarProperty Name="CorporateMarket" ColumnName="CorporateMarket" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="FK_LoginId" ColumnName="FK_LoginId" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="ShipQuarter" ColumnName="ShipQuarter" />
+                <ScalarProperty Name="ShipMonth" ColumnName="ShipMonth" />
+                <ScalarProperty Name="ShipDate2" ColumnName="ShipDate2" />
+                <ScalarProperty Name="ShipDate" ColumnName="ShipDate" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="SubSegment" ColumnName="SubSegment" />
+                <ScalarProperty Name="SubSegmentCode" ColumnName="SubSegmentCode" />
+                <ScalarProperty Name="Market" ColumnName="Market" />
+                <ScalarProperty Name="MarketCode" ColumnName="MarketCode" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="ACCT" ColumnName="ACCT" />
+                <ScalarProperty Name="ResellingExt" ColumnName="ResellingExt" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="PartNo" ColumnName="PartNo" />
+                <ScalarProperty Name="Series" ColumnName="Series" />
+                <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Distributor" ColumnName="Distributor" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Example - Bind JSON Data to HTML Table using AngularJS ng-repeat</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="../scripts/js/test1.js"></script>
+    <style>
+        table {
+            width: auto;
+            font: 17px Calibri;
+        }
+
+        table, th, td {
+            border: solid 1px #DDD;
+            border-collapse: collapse;
+            padding: 2px 3px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div ng-app="myApp" ng-controller="myController">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Employee Name</th>
+                <th>Age</th>
+            </tr>
+            <tr ng-repeat="emps in employees | orderBy : 'id'">
+
+                <td>{{emps.id}}</td>
+                <td>{{emps.name}}</td>
+                <td>{{emps.age}}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+<script>
+    angular.module("myApp", [])
+        .controller('myController', ['$scope', function ($scope) {
+            $scope.employees = [
+                {'id': '001', 'name': 'Alpha', 'age': 37} ,
+                {'id': '002', 'name': 'Bravo', 'age': 27} ,
+                {'id': '003', 'name': 'Charlie', 'age': 29} ,
+                {'id': '004', 'name': 'Delta', 'age': 19},
+                {'id': '005', 'name': 'Echo', 'age': 32}
+            ];
+
+  } ]);
+</script>
+</html>

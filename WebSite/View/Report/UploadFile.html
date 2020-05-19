@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+   
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">  
+    <script src="/scripts/js/ThirdParty/Jquery211.js"></script> 
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> 
+    <!------ Include the above in your HEAD tag ---------->
+    <link rel="stylesheet" type="text/css" href="/CSS/UploadFile.css">   
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+    <script src="/scripts/js/Global.js"></script>  
+    <script src="/scripts/js/Report/UploadFile.js"></script>
+   
+</head>
+<body id="LoginForm">
+   
+    <div class="input-group">
+        <span class="input-group-btn">
+            <button id="fake-file-button-browse" type="button" class="btn btn-default">
+                <span class="glyphicon glyphicon-file"></span>
+            </button>
+        </span>
+        <input type="file" id="files-input-upload"  accept=".pptx,.xls,.JPG, .xlsx,.png" style="display:none"  accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+        <input type="text" id="fake-file-input-name" disabled="disabled" placeholder="please upload jpg/png , pptx , xls file max size: 100 MB" class="form-control">
+        <span class="input-group-btn">
+            <button type="button" class="btn btn-default"  id="fake-file-button-upload">
+                <span class="glyphicon glyphicon-upload"></span>
+            </button>
+        </span>
+    </div> 
+    <div id="description">
+        please select the report date
+        <div class="dropdown" id="year">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Year
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">2018</a>
+                <a class="dropdown-item" href="#">2019</a>
+                <a class="dropdown-item" href="#">2020</a>
+                <a class="dropdown-item" href="#">2021</a>
+                <a class="dropdown-item" href="#">2022</a>
+                <a class="dropdown-item" href="#">2023</a>
+                <a class="dropdown-item" href="#">2024</a>
+                <a class="dropdown-item" href="#">2025</a>
+            </div>
+        </div>
+        <div class="dropdown" id="month">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton_month" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Month
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton_Month">
+                <a class="dropdown-item" href="#">01</a>
+                <a class="dropdown-item" href="#">02</a>
+                <a class="dropdown-item" href="#">03</a>
+                <a class="dropdown-item" href="#">04</a>
+                <a class="dropdown-item" href="#">05</a>
+                <a class="dropdown-item" href="#">06</a>
+                <a class="dropdown-item" href="#">07</a>
+                <a class="dropdown-item" href="#">08</a>
+                <a class="dropdown-item" href="#">09</a>
+                <a class="dropdown-item" href="#">10</a>
+                <a class="dropdown-item" href="#">11</a>
+                <a class="dropdown-item" href="#">12</a>
+            </div>
+        </div>
+    </div>
+    <div class="form-group"> 
+        <textarea class="form-control rounded-0" id="errorTxt" rows="1"></textarea>
+    </div> 
+        <!------ <div></div><textarea rows="20" cols="160"> </textarea> </div> ---------->
+        <footer><small class="pull-right">copyright@ <a href="http://www.amphenol.com.tw/CH/About_01.asp">Amphenol LTW Technology Co.,Ltd</a></small></footer>
+
+        <img src="/Image/ajax-loader.gif" id="loadIng" height="42" width="42">
+
+        <script type="text/javascript">
+        </script>
+</body>
+</html>

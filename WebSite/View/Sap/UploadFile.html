@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="/scripts/js/ThirdParty/Jquery211.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    <link rel="stylesheet" type="text/css" href="/CSS/UploadFile.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="/scripts/js/Global.js"></script>
+    <script src="/scripts/js/Sap/UploadFile.js"></script>
+</head>
+<body id="LoginForm">
+    <div class="dropdown" id="pricetype">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton_pricetype" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            type
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton_pricetype">
+            <a class="dropdown-item" href="#">終端客戶價格表A501</a>
+            <a class="dropdown-item" href="#">核發客戶價格表A305</a>
+        </div>
+    </div>
+    <div class="dropdown" id="getprice">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton_getprice" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            get price
+        </button> 
+    </div>
+    <div class="dropdown" id="excludetax">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton_excludetax" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            exclude tax
+        </button> 
+    </div>
+    <div class="input-group">
+
+        <span class="input-group-btn">
+
+            <button id="fake-file-button-browse" type="button" class="btn btn-default" data-toggle="tooltip" title="Upload!">
+
+                <span class="glyphicon glyphicon-file"> </span>
+            </button>
+        </span>
+        <input type="file" id="files-input-upload" style="display:none" accept=".xls, .xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+        <input type="text" id="fake-file-input-name" disabled="disabled" placeholder="please upload  xls file max size: 200 MB" class="form-control">
+        <span class="input-group-btn">
+            <button type="button" class="btn btn-default" id="fake-file-button-upload">
+                <span class="glyphicon glyphicon-upload"></span>
+            </button>
+        </span>
+    </div>
+    <div class="form-group">
+        <textarea class="form-control rounded-0" id="errorTxt" rows="30"></textarea>
+    </div>
+    <footer><small class="pull-right">copyright@ <a href="http://www.amphenol.com.tw/CH/About_01.asp">Amphenol LTW Technology Co.,Ltd</a></small></footer>
+
+    <img src="/Image/ajax-loader.gif" id="loadIng" height="42" width="42">
+
+    <script type="text/javascript">
+    </script>
+</body>
+</html>

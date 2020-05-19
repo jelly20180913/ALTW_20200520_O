@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+</head>
+<body   >
+    <div>
+        <span>
+            Username <input type="text" id="username">
+            Password <input type="password" id="password">
+            <button id="getToken">Get Token</button>
+        </span>
+    </div>
+    <div>
+        <textarea id="token" style="width:100%"></textarea>
+    </div>
+    <div>
+        <button id="getData">Get Data</button>
+    </div>
+    <div>
+        <textarea id="result" style="width:100%"></textarea>
+    </div>
+    <a href="http://www.google.com">Exit</a>
+    <button type="submit" onclick="UserAction()">Search</button>
+    <button type="button" onclick="test()">test</button>
+    <input type="button" onclick="jqueryTest()" value="jquerytest" />
+    <input type="button" onclick="basicTest()" value="basictest" />
+    <input type="button" onclick="asmxTest()" value="asmxtest" />
+    <input type="button" onclick="jqueryTestServer()" value="jqueryTestServer" />
+    <input type="button" onclick="postTest()" value="postTest" />
+    <input type="button" onclick="jwtLoginTest()" value="jwtLoginTest" />
+    <script>
+       
+        $(document).ready(function () {
+         //     var apiServer = 'http://10.0.2.185:802/api/';
+         var apiServer = 'http://localhost:52006/api/';
+            $('#getToken').click(function () {
+                $.post(apiServer + 'Token', {
+                    Username: $('#username').val(),
+                    Password: $('#password').val()
+                })
+                    .done(function (data) {
+                        alert("a");
+                        if (data.Status == "OK") {
+                            $('#token').val(data.Data.token);
+                        } else {
+                            $('#token').val('error');
+                        }
+                    })
+                    .fail(function (err) {
+                        alert(err);
+                        $('#token').val('error');
+                    });
+            });
+
+            $('#getData').click(function () {
+                $.ajax({
+                    url: apiServer + 'index/1',
+                    type: 'GET',
+                    headers: {
+                        Authorization: 'Bearer ' + $('#token').val()
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        $('#result').val(JSON.stringify(data));
+                        alert(apiServer);
+                    },
+                    error: function (data) {
+                        $('#result').val('error');
+                    }
+                })
+            })
+        })
+        function UserAction() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    alert(this.responseText);
+                }
+            };
+            xhttp.open("GET", "http://localhost:52006/api/index", true);
+            xhttp.send();
+
+        }
+        function test() {
+            $.ajax({
+                type: "GET",
+                dataType: 'json',
+                url: "http://localhost:52006/api/index/1",
+                success: function (result) {
+                    alert(result.Data.data);
+                }, error: function (xhr, ajaxOptions, throwError) {
+                    //Error block
+                    alert(throwError);
+                },
+
+            });
+        }
+        function jqueryTest() {
+            $.ajax({
+                type: "GET",
+                dataType: 'json',
+                url: "http://localhost:52006/api/index",
+                data: { id: "P180001CLB", kokrs: "1000" },
+                success: function (result) {
+                    alert(result.Data.MANDT);
+                }, error: function (xhr, ajaxOptions, throwError) {
+                    //Error block
+                    alert(throwError);
+                },
+
+            });
+        }
+        function jqueryTestServer() {
+            $.ajax({
+                type: "GET",
+                dataType: 'json',
+                url: "http://10.0.1.196:802/api/index",
+                data: { id: "P180001CLB", kokrs: "1000" },
+                success: function (result) {
+                    alert(result.Data.MANDT);
+                }, error: function (xhr, ajaxOptions, throwError) {
+                    //Error block
+                    alert(throwError);
+                },
+
+            });
+        }
+        function asmxTest() {
+            $.ajax({
+                url: "http://10.0.0.92/SCSServices/SCSService.asmx",
+                success: function (result) {
+                    alert(result.Data.data);
+                }, error: function (xhr, ajaxOptions, throwError) {
+                    //Error block
+                    alert(throwError);
+                },
+            });
+        }
+        function make_base_auth(user, password) {
+            var tok = user + ':' + password;
+            var hash = Base64.encode(tok);
+            return "Basic " + hash;
+        }
+
+        function basicTest() {
+            $.ajax
+                  ({
+                      type: "GET",
+                      url: "http://10.0.1.196:801/api/index/1",
+                      dataType: 'json',
+                      async: false,
+                      headers: {
+                          "Authorization": "Basic " + btoa("Amphenol" + ":" +"ALTW")
+                      },
+                      success : function(data) {
+                          //Success block
+                          var obj = jQuery.parseJSON(data);
+                          alert(obj);
+                          alert(obj.data);
+                      },
+                      error: function (xhr,ajaxOptions,throwError){
+                          //Error block
+                          alert("error");
+                      },
+                  });
+        }
+        function postTest() {
+            $.ajax({
+                type: "POST",
+                dataType: 'json',
+                url: "http://localhost:52006/api/index",
+                data: { value: "aaa"  },
+                success: function (result) {
+                    alert(result.Data.data);
+                }, error: function (xhr, ajaxOptions, throwError) {
+                    //Error block
+                    alert(throwError);
+                },
+
+            });
+
+        }  
+            jQuery(window).bind('beforeunload', function (e) {
+                var message = "Why are you leaving?";
+                e.returnValue = message;    
+                return message;
+            });
+      
+    </script>
+</body>
+</html>

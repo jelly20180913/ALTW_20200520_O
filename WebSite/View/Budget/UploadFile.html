@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="/scripts/js/ThirdParty/Jquery211.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    <link rel="stylesheet" type="text/css" href="/CSS/UploadFile.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.18/af-2.3.3/b-1.5.6/b-html5-1.5.6/cr-1.5.0/fc-3.2.5/fh-3.1.4/rr-1.2.4/sc-2.0.0/datatables.min.css" />
+        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.18/af-2.3.3/b-1.5.6/b-html5-1.5.6/cr-1.5.0/fc-3.2.5/fh-3.1.4/rr-1.2.4/sc-2.0.0/datatables.min.js"></script>
+        -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.18/b-1.5.6/b-colvis-1.5.6/b-flash-1.5.6/b-html5-1.5.6/b-print-1.5.6/cr-1.5.0/fc-3.2.5/fh-3.1.4/rr-1.2.4/sl-1.3.0/datatables.min.css" />
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.18/b-1.5.6/b-colvis-1.5.6/b-flash-1.5.6/b-html5-1.5.6/b-print-1.5.6/cr-1.5.0/fc-3.2.5/fh-3.1.4/rr-1.2.4/sl-1.3.0/datatables.min.js"></script>
+    <script src="/scripts/js/ThirdParty/dataTables.altEditor.free.js"></script>
+    <script src="/scripts/js/Global.js"></script>
+    <script src="/scripts/js/Budget/UploadFile.js"></script>
+    <link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+    <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+</head>
+<body id="LoginForm">
+
+
+    <div id="description">
+        <div class="dropdown" id="factory">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton_factory" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Factory
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton_factory">
+                <a class="dropdown-item" href="#">LT</a>
+                <a class="dropdown-item" href="#">KSZ</a>
+            </div>
+        </div>
+        <div class="dropdown" id="department">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton_department" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Department
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton_department" id="departmentName">
+                <a class="#budget dropdown-item" href="#">please choose factory first</a>
+            </div>
+        </div>
+        <div class="dropdown" id="budget">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton_budget" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Budget
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton_budget" id="budgetType">
+                <a class="#budget dropdown-item" href="#">please choose factory first</a>
+            </div>
+        </div>
+        <div class="dropdown" id="commonCost">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton_commonCost" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Common Cost
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton_commonCost" id="commonCostType">
+                <a class="#budget dropdown-item" href="#">please choose factory first</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-success" type="button" id="Review" aria-haspopup="true" aria-expanded="false">
+                Review
+            </button>
+        </div>
+        <div class="keepRight">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="Change" aria-haspopup="true" aria-expanded="false">
+                    Change
+                </button>
+            </div>
+            <div class="dropdown" id="changepassword">
+                <input type="password" class="form-control" id="pwd" placeholder="change password">
+            </div>
+        </div>
+    </div>
+
+    <div class="input-group">
+
+        <span class="input-group-btn">
+
+            <button id="fake-file-button-browse" type="button" class="btn btn-default" data-toggle="tooltip" title="Choose File!">
+
+                <span class="glyphicon glyphicon-file"> </span>
+            </button>
+        </span>
+        <input type="file" id="files-input-upload" accept=".xls, .xlsx" style="display:none" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+        <input type="text" id="fake-file-input-name" disabled="disabled" placeholder="please upload  xls file max size: 200 MB" class="form-control">
+        <span class="input-group-btn">
+            <button type="button" class="btn btn-default" id="fake-file-button-upload" title="Upload!">
+                <span class="glyphicon glyphicon-upload"></span>
+            </button>
+        </span>
+    </div>
+    <div style="color:blueviolet;" id="approve_html"> </div>
+    <table id="table_id" class="display">
+        <thead id="fileVersionBudgetHead">
+
+        </thead>
+        <tbody id="fileVersionBudget"></tbody>
+    </table>
+    <div class="form-group">
+        <textarea class="form-control rounded-0" id="errorTxt" rows="30"></textarea>
+    </div>
+    <footer><small class="pull-right">copyright@ <a href="http://www.amphenol.com.tw/CH/About_01.asp">Amphenol LTW Technology Co.,Ltd</a></small></footer>
+
+    <img src="/Image/ajax-loader.gif" id="loadIng" height="42" width="42">
+
+    <div id="dialog-confirm" title="change your password？" style="display:none">
+        <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Are you sure to change your account password？</p>
+    </div>
+    <script type="text/javascript">
+    </script>
+</body>
+        </html>

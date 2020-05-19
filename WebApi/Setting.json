@@ -1,0 +1,14 @@
+﻿ [
+  {
+    "Origin": "Owner",
+    "Secret": "JwtAuthActionFilter",
+    "Username": "Amphenol",
+    "Password": "ALTW"
+  },
+    {
+      "Origin": "Customer",
+      "Secret": "JwtAuthActionForCustomer",
+      "Username": "Test",
+      "Password": "0000"
+    }
+  ] 

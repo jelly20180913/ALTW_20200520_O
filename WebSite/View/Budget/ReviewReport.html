@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="/scripts/js/Budget/jquery-3.4.1.js"></script>
+    <script src="/scripts/js/Global.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="/scripts/js/Budget/ReviewReport.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" type="text/css" href="/../CSS/ReviewReport.css">
+</head>
+<body>
+<div id="InputQuery" style="z-index:9999;position:absolute;top:50px;left:50px;visibility:hidden;border:1px solid Black;" >
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td colspan="2" align="center" style="background-color:lightblue;">
+                Please select your query condition , then press "Query" button.&nbsp;&nbsp;
+                <button id="btnClose" onclick="btnClose_Click()">Close Query Condition</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="background-color:#ffffff;">
+                Budget Year:&nbsp;&nbsp;
+                <select id="BudgetYear">
+                    <option value="2020" selected>2020</option>
+                </select>
+                &nbsp;&nbsp;<button class="btn btn-primary" id="btnQuery" style="visibility:hidden">Query</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="background-color:#ffffff;">
+                <div id="trTBH" style="visibility:hidden">
+                    TBH :&nbsp;&nbsp;
+                    <select id="chTBH">
+                        <option selected value="0">Yes</option>
+                        <option value="1">No</option>
+                    </select>
+                    <br />
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="background-color:#ffffff;">
+                Group By:&nbsp;&nbsp;
+                <select id="QueryGroupby"></select><br />
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td valign="top" bgcolor="LightYellow">
+                Department of LT
+                <button id="LTSelectall" onclick="LTSelectall_Click()">Select all</button>
+                <button id="LTSelectnone" onclick="LTSelectnone_Click()">Select none</button>
+                <br />
+                <span id="LTDeptList">
+                </span>
+            </td>
+            <td valign="top" bgcolor="LightYellow">
+                Department of KSZ
+                <button id="KSSelectall" onclick="KSSelectall_Click()">Select all</button>
+                <button id="KSSelectnone" onclick="KSSelectnone_Click()">Select none</button>
+                <br />
+                <span id="KSZDeptList">
+                </span>
+            </td>
+        </tr>
+    </table>
+</div>
+<div>
+    <div class="dropdown" id="BudgetReport">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton_BudgetReport" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        BudgetReport▼
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton_BudgetReport">
+            <a class="dropdown-item" href="#">Dept. Expense</a>
+            <a class="dropdown-item" href="#">Scrap</a>
+            <a class="dropdown-item" href="#">Travelling</a>
+            <a class="dropdown-item" href="#">KPI</a>
+            <a class="dropdown-item" href="#">Headcount</a>
+            <a class="dropdown-item" href="#">Capex</a>
+        </div>
+    </div>
+&nbsp;&nbsp;&nbsp;&nbsp;
+    <button class="btn btn-primary" id="btnInputQuery" onclick="btnInputQuery_Click()">Query Condition</button>&nbsp;&nbsp;&nbsp;&nbsp;
+    <button class="btn btn-primary" id="btnExportExcel" onclick="btnExportExcel_Click()" style="visibility:visible">Export Excel</button>&nbsp;&nbsp;&nbsp;&nbsp;
+    <button class="btn btn-success" type="button" id="UploadFile">Back to upload</button>
+</div>
+    <br />
+<div id="ReportData">
+<span id="ReportName" style="color:darkorange"></span>
+<table id="ReportDataTable" class="tblReportData">
+</table>
+</div>
+</body>
+</html>

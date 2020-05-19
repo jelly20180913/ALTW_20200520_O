@@ -1,0 +1,8 @@
+﻿ 
+ul li {
+    list-style-type: none;
+}
+    ul li .votecount {
+        width: 30px;
+        display: none;
+    } 
